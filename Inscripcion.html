@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ion--shield-outline.svg" type="image/svg+xml">
+    <title>DIGITALBLERD - Master 3D Design & Animation</title>
+    <meta name="description" content="Domina Blender desde cero hasta nivel profesional en 5 meses. Únete a más de 500 graduados que han transformado su futuro profesional.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/Inscripcion.css">    
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar-custom fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo -->
+                <a href="index.html" class="navbar-brand logo-brand">
+                    <div class="logo-icon">
+                        <iconify-icon icon="material-symbols:shield-outline" width="32" height="32"></iconify-icon>
+                    </div>
+                    <span class="logo-text">DIGITALBLERD</span>
+                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <iconify-icon icon="material-symbols:menu" class="menu-icon"></iconify-icon>
+                    <iconify-icon icon="material-symbols:close" class="close-icon d-none"></iconify-icon>
+                </button>
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#programa">Programa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#metodologia">Metodología</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#precios">Precios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#recursos">Recursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#blog">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#inscripcion" class="btn btn-cta-custom ms-lg-3 mt-2 mt-lg-0">
+                                Inscríbete Ahora
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+
+    <section class="hero-section">
+        <div class="hero-particles"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100 py-5">
+                <div class="col-lg-6 hero-content">
+                    <div class="badge-pill mb-4 fade-in-up">
+                        <span class="iconify me-2" data-icon="mdi:star-circle"></span>
+                        Curso más valorado 2025
+                    </div>
+                    <h1 class="display-3 fw-bold mb-4 fade-in-up" style="animation-delay: 0.1s;">
+                        Domina <span class="gradient-text">Blender 3D</span> desde Cero
+                    </h1>
+                    <p class="lead mb-4 fade-in-up" style="animation-delay: 0.2s;">
+                        Aprende modelado 3D, texturizado, iluminación y renderizado profesional. 
+                        Crea proyectos impresionantes y lleva tu creatividad al siguiente nivel.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mb-4 fade-in-up" style="animation-delay: 0.3s;">
+                        <a href="#inscripcion" class="btn btn-primary btn-lg btn-cta">
+                            Comenzar Ahora
+                            <span class="iconify ms-2" data-icon="mdi:rocket-launch"></span>
+                        </a>
+                        <button class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#videoModal">
+                            <span class="iconify me-2" data-icon="mdi:play-circle"></span>
+                            Ver Demo
+                        </button>
+                    </div>
+                    <div class="hero-stats d-flex flex-wrap gap-4 fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="stat-item">
+                            <div class="stat-number">4.9/5</div>
+                            <div class="stat-label">Valoración</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">120h</div>
+                            <div class="stat-label">Contenido</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="hero-image-container">
+                        <img src="https://zao3d.com/wp-content/uploads/2023/05/normal-lighting-blender.jpg" 
+                             alt="Blender 3D Interface" 
+                             class="img-fluid rounded-4 shadow-strong floating">
+                        <div class="floating-card floating-card-1">
+                            <span class="iconify" data-icon="mdi:cube-outline" data-width="24"></span>
+                            <span class="ms-2">Modelado 3D</span>
+                        </div>
+                        <div class="floating-card floating-card-2">
+                            <span class="iconify" data-icon="mdi:palette" data-width="24"></span>
+                            <span class="ms-2">Texturizado</span>
+                        </div>
+                        <div class="floating-card floating-card-3">
+                            <span class="iconify" data-icon="mdi:lightbulb-on" data-width="24"></span>
+                            <span class="ms-2">Iluminación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="beneficios" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">¿Por qué elegir este curso?</h2>
+                <p class="lead text-muted">Todo lo que necesitas para convertirte en un artista 3D profesional</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card h-100">
+                        <div class="benefit-icon">
+                            <span class="iconify" data-icon="mdi:school" data-width="32"></span>
+                        </div>
+                        <h4 class="fw-bold mb-3">Aprende a tu ritmo</h4>
+                        <p class="text-muted mb-0">Acceso ilimitado de por vida. Estudia cuando y donde quieras.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card h-100">
+                        <div class="benefit-icon">
+                            <span class="iconify" data-icon="mdi:account-group" data-width="32"></span>
+                        </div>
+                        <h4 class="fw-bold mb-3">Comunidad activa</h4>
+                        <p class="text-muted mb-0">Únete a miles de estudiantes y comparte tus proyectos.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card h-100">
+                        <div class="benefit-icon">
+                            <span class="iconify" data-icon="mdi:update" data-width="32"></span>
+                        </div>
+                        <h4 class="fw-bold mb-3">Actualizaciones gratis</h4>
+                        <p class="text-muted mb-0">Contenido nuevo cada mes sin costo adicional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="curriculum" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Curriculum del Curso</h2>
+                <p class="lead text-muted">Un programa completo diseñado para llevarte de principiante a profesional</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion curriculum-accordion" id="curriculumAccordion">
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#module1">
+                                    <span class="module-number">01</span>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Introducción a Blender</div>
+                                        <small class="text-muted">4 lecciones • 12 horas</small>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="module1" class="accordion-collapse collapse show" data-bs-parent="#curriculumAccordion">
+                                <div class="accordion-body">
+                                    <ul class="lesson-list">
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Instalación y configuración de Blender</a>
+                                            <span class="lesson-duration">45 min</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                            <a href="https://www.blender.org/download/" target="_blank">Interfaz y navegación básica</a>
+                                            <span class="lesson-duration">1h 30min</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Uso de herramientas</a>
+                                            <span class="lesson-duration">2h</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Modelado básico con primitivas</a>
+                                            <span class="lesson-duration">2h 15min</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                         Module 2 
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#module2">
+                                    <span class="module-number">02</span>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Modelado Avanzado</div>
+                                        <small class="text-muted">12 lecciones • 18 horas</small>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="module2" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
+                                <div class="accordion-body">
+                                    <ul class="lesson-list">
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Modelado poligonal avanzado</a>
+                                            <span class="lesson-duration">2h 30min</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Modificadores y herramientas</a>
+                                            <span class="lesson-duration">3h</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Escultura digital</a>
+                                            <span class="lesson-duration">4h</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Retopología y optimización</a>
+                                            <span class="lesson-duration">2h 45min</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                         Module 3 
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#module3">
+                                    <span class="module-number">03</span>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Materiales y Texturizado</div>
+                                        <small class="text-muted">10 lecciones • 15 horas</small>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="module3" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
+                                <div class="accordion-body">
+                                    <ul class="lesson-list">
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Shader Editor y nodos</a>
+                                            <span class="lesson-duration">2h</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Materiales PBR realistas</a>
+                                            <span class="lesson-duration">3h 30min</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">UV Mapping y unwrapping</a>
+                                            <span class="lesson-duration">2h 45min</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Texture painting</a>
+                                            <span class="lesson-duration">3h</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                         Module 4 
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#module4">
+                                    <span class="module-number">04</span>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Iluminación y Renderizado</div>
+                                        <small class="text-muted">9 lecciones • 14 horas</small>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="module4" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
+                                <div class="accordion-body">
+                                    <ul class="lesson-list">
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Tipos de luces en Blender</a>
+                                            <span class="lesson-duration">1h 45min</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Iluminación de estudio</a>
+                                            <span class="lesson-duration">2h 30min</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">HDRI y entornos</a>
+                                            <span class="lesson-duration">2h</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Cycles vs Eevee</a>
+                                            <span class="lesson-duration">3h</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                         Module 5 
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#module5">
+                                    <span class="module-number">05</span>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Animación y Proyectos Finales</div>
+                                        <small class="text-muted">15 lecciones • 25 horas</small>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="module5" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
+                                <div class="accordion-body">
+                                    <ul class="lesson-list">
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Principios de animación</a>
+                                            <span class="lesson-duration">2h</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Rigging básico y avanzado</a>
+                                            <span class="lesson-duration">4h</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Simulaciones físicas</a>
+                                            <span class="lesson-duration">3h 30min</span>
+                                        </li>
+                                        <li>
+                                            <span class="iconify me-2" data-icon="mdi:play-circle-outline"></span>
+                                                <a href="https://www.blender.org/download/" target="_blank">Proyecto final: Escena completa</a>
+                                            <span class="lesson-duration">8h</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Lo que dicen nuestros estudiantes</h2>
+                <p class="lead text-muted">Miles de estudiantes han transformado sus carreras</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card h-100">
+                        <div class="stars mb-3">
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                        </div>
+                        <p class="mb-4">
+                            "Este curso cambió mi vida. Pasé de no saber nada de 3D a conseguir mi primer trabajo 
+                            como artista 3D en solo 6 meses. El contenido es increíble y el instructor explica todo perfectamente."
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://i.pravatar.cc/60?img=1" alt="Student" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <div class="fw-bold">María González</div>
+                                <small class="text-muted">Artista 3D Junior</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card h-100">
+                        <div class="stars mb-3">
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                        </div>
+                        <p class="mb-4">
+                            "La mejor inversión que he hecho. El curso es muy completo y práctico. 
+                            Ahora puedo crear mis propios proyectos freelance y generar ingresos extra."
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://i.pravatar.cc/60?img=12" alt="Student" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <div class="fw-bold">Juan Pérez</div>
+                                <small class="text-muted">Freelancer 3D</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card h-100">
+                        <div class="stars mb-3">
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                            <span class="iconify" data-icon="mdi:star" data-width="20"></span>
+                        </div>
+                        <p class="mb-4">
+                            "Excelente curso, muy bien estructurado. Las explicaciones son claras y los proyectos 
+                            prácticos te preparan para el mundo real. Totalmente recomendado."
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://i.pravatar.cc/60?img=5" alt="Student" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <div class="fw-bold">Ana Martínez</div>
+                                <small class="text-muted">Diseñadora Gráfica</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="precios" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Elige tu plan</h2>
+                <p class="lead text-muted">Acceso completo al curso con diferentes opciones de pago</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card h-100">
+                        <div class="pricing-header">
+                            <h3 class="h5 fw-bold mb-2">Plan Básico</h3>
+                            <p class="text-muted mb-4">Perfecto para comenzar</p>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">1,000 MXN</span>
+                                <span class="period">/mes</span>
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Acceso a todos los módulos
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                120 horas de contenido
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Certificado de finalización
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Acceso a la comunidad
+                            </li>
+                            <li class="text-muted">
+                                <span class="iconify me-2" data-icon="mdi:close-circle"></span>
+                                Soporte prioritario
+                            </li>
+                            <li class="text-muted">
+                                <span class="iconify me-2" data-icon="mdi:close-circle"></span>
+                                Proyectos exclusivos
+                            </li>
+                        </ul>
+                        <a href="#inscripcion" class="btn btn-outline-primary w-100 btn-cta">
+                            Seleccionar Plan
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card pricing-card-featured h-100">
+                        <div class="popular-badge">Más Popular</div>
+                        <div class="pricing-header">
+                            <h3 class="h5 fw-bold mb-2">Plan Intermedio</h3>
+                            <p class="text-muted mb-4">La mejor opción</p>
+                            <div class="price">
+                                <span class="currency">$</span>
+                                <span class="amount">2,000 MXN</span>
+                                <span class="period">pago único</span>
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Acceso de por vida
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                120 horas de contenido
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Certificado de finalización
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Acceso a la comunidad
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Soporte prioritario
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Proyectos exclusivos
+                            </li>
+                        </ul>
+                        <a href="#inscripcion" class="btn btn-primary w-100 btn-cta">
+                            Comenzar Ahora
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card h-100">
+                        <div class="pricing-header">
+                            <h3 class="h5 fw-bold mb-2">Plan Avanzado</h3>
+                            <p class="text-muted mb-4">Para equipos</p>
+                            <div class="price">
+                                <span class="amount">$3,000 MXN</span>
+                                <span class="period">/mes</span>
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Todo del Plan Pro
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Licencias múltiples
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Soporte dedicado
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Capacitación personalizada
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Facturación empresarial
+                            </li>
+                            <li>
+                                <span class="iconify me-2" data-icon="mdi:check-circle"></span>
+                                Reportes de progreso
+                            </li>
+                        </ul>
+                        <a href="#inscripcion" class="btn btn-outline-primary w-100 btn-cta">
+                            Contactar Ventas
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inscripcion" class="py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="registration-form-container">
+                        <div class="text-center mb-5">
+                            <h2 class="display-5 fw-bold mb-3">Inscríbete Ahora</h2>
+                            <p class="lead text-muted">Completa el formulario y comienza tu viaje en el mundo 3D</p>
+                        </div>
+                        <form id="registrationForm" class="registration-form">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control form-control-lg" id="firstName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control form-control-lg" id="lastName" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control form-control-lg" id="email" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="phone" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control form-control-lg" id="phone" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="plan" class="form-label">Plan</label>
+                                    <select class="form-select form-select-lg" id="plan" required>
+                                        <option value="">Selecciona un plan</option>
+                                        <option value="basico">Plan Básico - $99/mes</option>
+                                        <option value="pro">Plan Pro - $299 pago único</option>
+                                        <option value="empresarial">Plan Empresarial - Contactar</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="experience" class="form-label">Nivel de experiencia</label>
+                                    <select class="form-select form-select-lg" id="experience" required>
+                                        <option value="">Selecciona tu nivel</option>
+                                        <option value="principiante">Principiante</option>
+                                        <option value="intermedio">Intermedio</option>
+                                        <option value="avanzado">Avanzado</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">¿Por qué quieres aprender Blender?</label>
+                                    <textarea class="form-control" id="message" rows="4"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            Acepto los términos y condiciones y la política de privacidad
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100 btn-cta">
+                                        <span class="iconify me-2" data-icon="mdi:rocket-launch"></span>
+                                        Inscribirme Ahora
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Preguntas Frecuentes</h2>
+                <p class="lead text-muted">Resolvemos tus dudas más comunes</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion faq-accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    ¿Necesito experiencia previa en 3D?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    No, el curso está diseñado para principiantes absolutos. Comenzamos desde cero y 
+                                    avanzamos gradualmente hasta técnicas profesionales.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    ¿Qué equipo necesito?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Necesitas una computadora con al menos 8GB de RAM, tarjeta gráfica dedicada (recomendado) 
+                                    y Blender instalado (software gratuito). Funciona en Windows, Mac y Linux.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    ¿Cuánto tiempo tengo para completar el curso?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Con el Plan Pro tienes acceso de por vida. Puedes aprender a tu propio ritmo sin presiones.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    ¿Ofrecen certificado?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, al completar el curso recibirás un certificado verificable que puedes compartir en 
+                                    LinkedIn y tu portafolio profesional.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    ¿Hay garantía de devolución?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, ofrecemos una garantía de devolución de 30 días sin preguntas. Si no estás satisfecho, 
+                                    te devolvemos tu dinero.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Company Info -->
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <iconify-icon icon="material-symbols:shield-outline" class="footer-logo-icon me-2"></iconify-icon>
+                            <span class="footer-logo-text">DIGITALBLERD</span>
+                        </div>
+                        <p class="footer-description">
+                            La academia premium de diseño 3D en español. Transformamos creativos en profesionales con salarios competitivos en la industria del entretenimiento digital.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Enlaces Rápidos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#programa">Programa del Curso</a></li>
+                        <li><a href="#metodologia">Metodología</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#recursos">Recursos Gratuitos</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contacto</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <iconify-icon icon="material-symbols:mail-outline" class="me-2"></iconify-icon>
+                            hola@digitalblerd.es
+                        </li>
+                        <li>
+                            <iconify-icon icon="material-symbols:phone" class="me-2"></iconify-icon>
+                            +34 900 123 456
+                        </li>
+                        <li>
+                            <iconify-icon icon="material-symbols:location-on" class="me-2"></iconify-icon>
+                            Madrid, España
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Síguenos</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:youtube"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:instagram"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:twitter"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:linkedin"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+            <div class="footer-copyright">
+                <p class="mb-0">
+                    &copy; 2025 DIGITALBLERD Academy. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Iconify -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@latest/dist/iconify-icon.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/Inscripcion.js"></script>
+</body>
+</html>

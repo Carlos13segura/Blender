@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ion--shield-outline.svg" type="image/svg+xml">
+    <title>DIGITALBLERD - Master 3D Design & Animation</title>
+    <meta name="description" content="Domina Blender desde cero hasta nivel profesional en 5 meses. Únete a más de 500 graduados que han transformado su futuro profesional.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/Instalacion.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar-custom fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo -->
+                <a href="index.html" class="navbar-brand logo-brand">
+                    <div class="logo-icon">
+                        <iconify-icon icon="material-symbols:shield-outline" width="32" height="32"></iconify-icon>
+                    </div>
+                    <span class="logo-text">DIGITALBLERD</span>
+                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <iconify-icon icon="material-symbols:menu" class="menu-icon"></iconify-icon>
+                    <iconify-icon icon="material-symbols:close" class="close-icon d-none"></iconify-icon>
+                </button>
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="Instalación.html">Instalación</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#metodologia">Metodología</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#precios">Precios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#recursos">Recursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#blog">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Inscripcion.html" class="btn btn-cta-custom ms-lg-3 mt-2 mt-lg-0">
+                                Inscríbete Ahora
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="hero-title">Guía de Instalación de Blender</h2>
+                    <p class="hero-description">
+                        Aprende a instalar Blender 3D en tu sistema operativo con instrucciones paso a paso para Windows, macOS y Linux.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content pb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <!-- Tabs Navigation -->
+                    <ul class="nav nav-pills nav-fill mb-4 custom-tabs" id="osTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="windows-tab" data-bs-toggle="pill" data-bs-target="#windows" type="button" role="tab">
+                                <iconify-icon icon="lucide:monitor" width="16" height="16" class="me-2"></iconify-icon>
+                                Windows
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="mac-tab" data-bs-toggle="pill" data-bs-target="#mac" type="button" role="tab">
+                                <iconify-icon icon="lucide:apple" width="16" height="16" class="me-2"></iconify-icon>
+                                macOS
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="linux-tab" data-bs-toggle="pill" data-bs-target="#linux" type="button" role="tab">
+                                <iconify-icon icon="lucide:terminal" width="16" height="16" class="me-2"></iconify-icon>
+                                Linux
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Tabs Content -->
+                    <div class="tab-content" id="osTabsContent">
+                        <!-- Windows Tab -->
+                        <div class="tab-pane fade show active" id="windows" role="tabpanel">
+                            <div class="card custom-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <iconify-icon icon="lucide:monitor" width="20" height="20" class="text-primary me-2"></iconify-icon>
+                                        Instalación en Windows
+                                    </h3>
+                                    <p class="card-description">Sigue estos pasos para instalar Blender en Windows 10 u 11</p>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Step 1 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Descargar Blender</h4>
+                                            <p class="step-description">Ve al sitio oficial de Blender y descarga la versión para Windows.</p>
+                                            <ul class="step-list">
+                                                <li>Visita <a href="https://www.blender.org/download/" target="_blank" rel="noopener noreferrer">blender.org/download</a></li>
+                                                <li>Selecciona la versión para Windows (64-bit)</li>
+                                                <li>El archivo será un instalador .msi o .zip</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 2 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Ejecutar el Instalador</h4>
+                                            <p class="step-description">Abre el archivo descargado para iniciar la instalación.</p>
+                                            <ul class="step-list">
+                                                <li>Haz doble clic en el archivo .msi descargado</li>
+                                                <li>Si aparece un aviso de seguridad, haz clic en "Sí" o "Ejecutar"</li>
+                                                <li>Acepta los términos de la licencia GPL</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 3 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Configurar la Instalación</h4>
+                                            <p class="step-description">Elige la ubicación y las opciones de instalación.</p>
+                                            <ul class="step-list">
+                                                <li>Selecciona la carpeta de destino (por defecto: C:\Program Files\Blender Foundation\)</li>
+                                                <li>Marca la opción "Crear acceso directo en el escritorio" si lo deseas</li>
+                                                <li>Haz clic en "Instalar" para comenzar</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 4 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Completar la Instalación</h4>
+                                            <p class="step-description">Finaliza el proceso y abre Blender por primera vez.</p>
+                                            <ul class="step-list">
+                                                <li>Espera a que se complete la instalación</li>
+                                                <li>Haz clic en "Finalizar"</li>
+                                                <li>Abre Blender desde el menú Inicio o el acceso directo</li>
+                                                <li>Configura tus preferencias iniciales (idioma, tema, etc.)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- System Requirements -->
+                                    <div class="system-requirements">
+                                        <h4 class="requirements-title">
+                                            <iconify-icon icon="lucide:check-circle-2" width="20" height="20" class="text-primary me-2"></iconify-icon>
+                                            Requisitos del Sistema
+                                        </h4>
+                                        <ul class="requirements-list">
+                                            <li>Windows 10 o 11 (64-bit)</li>
+                                            <li>8 GB de RAM mínimo (16 GB recomendado)</li>
+                                            <li>Tarjeta gráfica compatible con OpenGL 4.3</li>
+                                            <li>2 GB de espacio en disco</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- macOS Tab -->
+                        <div class="tab-pane fade" id="mac" role="tabpanel">
+                            <div class="card custom-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <iconify-icon icon="lucide:apple" width="20" height="20" class="text-primary me-2"></iconify-icon>
+                                        Instalación en macOS
+                                    </h3>
+                                    <p class="card-description">Sigue estos pasos para instalar Blender en macOS</p>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Step 1 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Descargar Blender</h4>
+                                            <p class="step-description">Descarga la versión para macOS desde el sitio oficial.</p>
+                                            <ul class="step-list">
+                                                <li>Visita <a href="https://www.blender.org/download/" target="_blank" rel="noopener noreferrer">blender.org/download</a></li>
+                                                <li>Selecciona macOS (Intel o Apple Silicon según tu Mac)</li>
+                                                <li>El archivo será un .dmg</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 2 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Abrir el Archivo DMG</h4>
+                                            <p class="step-description">Monta la imagen de disco descargada.</p>
+                                            <ul class="step-list">
+                                                <li>Haz doble clic en el archivo .dmg descargado</li>
+                                                <li>Se abrirá una ventana del Finder con el icono de Blender</li>
+                                                <li>Verás la carpeta Applications a un lado</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 3 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Instalar Blender</h4>
+                                            <p class="step-description">Arrastra Blender a la carpeta de Aplicaciones.</p>
+                                            <ul class="step-list">
+                                                <li>Arrastra el icono de Blender a la carpeta Applications</li>
+                                                <li>Espera a que se complete la copia</li>
+                                                <li>Puedes expulsar el disco .dmg después</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Step 4 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Primera Ejecución</h4>
+                                            <p class="step-description">Abre Blender y configura los permisos necesarios.</p>
+                                            <ul class="step-list">
+                                                <li>Abre Blender desde la carpeta Applications</li>
+                                                <li>Si aparece un aviso de seguridad, ve a Preferencias del Sistema > Seguridad</li>
+                                                <li>Haz clic en "Abrir de todas formas"</li>
+                                                <li>Configura tus preferencias iniciales</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- System Requirements -->
+                                    <div class="system-requirements">
+                                        <h4 class="requirements-title">
+                                            <iconify-icon icon="lucide:check-circle-2" width="20" height="20" class="text-primary me-2"></iconify-icon>
+                                            Requisitos del Sistema
+                                        </h4>
+                                        <ul class="requirements-list">
+                                            <li>macOS 11.2 Big Sur o superior</li>
+                                            <li>Mac Intel o Apple Silicon (M1/M2/M3)</li>
+                                            <li>8 GB de RAM mínimo (16 GB recomendado)</li>
+                                            <li>2 GB de espacio en disco</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Linux Tab -->
+                        <div class="tab-pane fade" id="linux" role="tabpanel">
+                            <div class="card custom-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <iconify-icon icon="lucide:terminal" width="20" height="20" class="text-primary me-2"></iconify-icon>
+                                        Instalación en Linux
+                                    </h3>
+                                    <p class="card-description">Múltiples métodos de instalación para diferentes distribuciones</p>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Method 1 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Método 1: Snap (Recomendado)</h4>
+                                            <p class="step-description">La forma más fácil de instalar en la mayoría de distribuciones.</p>
+                                            <div class="code-block">
+                                                <code>sudo snap install blender --classic</code>
+                                            </div>
+                                            <p class="step-note">Este método funciona en Ubuntu, Fedora, Debian, Arch y otras distribuciones con soporte para Snap.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Method 2 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Método 2: Flatpak</h4>
+                                            <p class="step-description">Alternativa universal para todas las distribuciones.</p>
+                                            <div class="code-block mb-3">
+                                                <code>flatpak install flathub org.blender.Blender</code>
+                                            </div>
+                                            <p class="step-note mb-2">Para ejecutar:</p>
+                                            <div class="code-block">
+                                                <code>flatpak run org.blender.Blender</code>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Method 3 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Método 3: Gestor de Paquetes</h4>
+                                            <p class="step-description">Instalación nativa según tu distribución.</p>
+                                            
+                                            <div class="mb-3">
+                                                <p class="distro-label">Ubuntu/Debian:</p>
+                                                <div class="code-block">
+                                                    <code>sudo apt update && sudo apt install blender</code>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <p class="distro-label">Fedora:</p>
+                                                <div class="code-block">
+                                                    <code>sudo dnf install blender</code>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <p class="distro-label">Arch Linux:</p>
+                                                <div class="code-block">
+                                                    <code>sudo pacman -S blender</code>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Method 4 -->
+                                    <div class="installation-step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-content">
+                                            <h4 class="step-title">Método 4: Descarga Manual</h4>
+                                            <p class="step-description">Descarga el archivo tar.xz desde el sitio oficial.</p>
+                                            <ul class="step-list">
+                                                <li>Descarga el archivo .tar.xz desde blender.org</li>
+                                                <li>Extrae: <code class="inline-code">tar -xf blender-*.tar.xz</code></li>
+                                                <li>Mueve a /opt: <code class="inline-code">sudo mv blender-* /opt/blender</code></li>
+                                                <li>Ejecuta: <code class="inline-code">/opt/blender/blender</code></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- System Requirements -->
+                                    <div class="system-requirements">
+                                        <h4 class="requirements-title">
+                                            <iconify-icon icon="lucide:check-circle-2" width="20" height="20" class="text-primary me-2"></iconify-icon>
+                                            Requisitos del Sistema
+                                        </h4>
+                                        <ul class="requirements-list">
+                                            <li>Distribución Linux de 64-bit</li>
+                                            <li>8 GB de RAM mínimo (16 GB recomendado)</li>
+                                            <li>Tarjeta gráfica compatible con OpenGL 4.3</li>
+                                            <li>2 GB de espacio en disco</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Resources -->
+                    <div class="card custom-card mt-4">
+                        <div class="card-header">
+                            <h3 class="card-title">Recursos Adicionales</h3>
+                            <p class="card-description">Enlaces útiles para comenzar con Blender</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <a href="https://www.blender.org/support/tutorials/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                        <div class="resource-icon">
+                                            <iconify-icon icon="lucide:external-link" width="20" height="20"></iconify-icon>
+                                        </div>
+                                        <div>
+                                            <h4 class="resource-title">Tutoriales Oficiales</h4>
+                                            <p class="resource-description">Aprende lo básico de Blender</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://docs.blender.org/" target="_blank" rel="noopener noreferrer" class="resource-link">
+                                        <div class="resource-icon">
+                                            <iconify-icon icon="lucide:external-link" width="20" height="20"></iconify-icon>
+                                        </div>
+                                        <div>
+                                            <h4 class="resource-title">Documentación</h4>
+                                            <p class="resource-description">Manual completo de Blender</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Footer -->
+    <footer class="footer-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Company Info -->
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <iconify-icon icon="material-symbols:shield-outline" class="footer-logo-icon me-2"></iconify-icon>
+                            <span class="footer-logo-text">DIGITALBLERD</span>
+                        </div>
+                        <p class="footer-description">
+                            La academia premium de diseño 3D en español. Transformamos creativos en profesionales con salarios competitivos en la industria del entretenimiento digital.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Enlaces Rápidos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#programa">Programa del Curso</a></li>
+                        <li><a href="#metodologia">Metodología</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#recursos">Recursos Gratuitos</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contacto</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <iconify-icon icon="material-symbols:mail-outline" class="me-2"></iconify-icon>
+                            hola@digitalblerd.es
+                        </li>
+                        <li>
+                            <iconify-icon icon="material-symbols:phone" class="me-2"></iconify-icon>
+                            +34 900 123 456
+                        </li>
+                        <li>
+                            <iconify-icon icon="material-symbols:location-on" class="me-2"></iconify-icon>
+                            Madrid, España
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Síguenos</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:youtube"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:instagram"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:twitter"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:linkedin"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+            <div class="footer-copyright">
+                <p class="mb-0">
+                    &copy; 2025 DIGITALBLERD Academy. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Iconify -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@latest/dist/iconify-icon.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

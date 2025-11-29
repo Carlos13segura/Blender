@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ion--shield-outline.svg" type="image/svg+xml">
+    <title>DIGITALBLERD - Proyectos</title>
+    <meta name="description"
+        content="Domina Blender desde cero hasta nivel profesional en 5 meses. Únete a más de 500 graduados que han transformado su futuro profesional.">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<!--CSS -->
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/Proyectos.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar-custom fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo -->
+                <a href="index.html" class="navbar-brand logo-brand">
+                    <div class="logo-icon">
+                        <iconify-icon icon="material-symbols:shield-outline" width="32" height="32"></iconify-icon>
+                    </div>
+                    <span class="logo-text">DIGITALBLERD</span>
+                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <iconify-icon icon="material-symbols:menu" class="menu-icon"></iconify-icon>
+                    <iconify-icon icon="material-symbols:close" class="close-icon d-none"></iconify-icon>
+                </button>
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#programa">Programa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#metodologia">Metodología</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#precios">Precios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#recursos">Recursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#blog">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#inscripcion" class="btn btn-cta-custom ms-lg-3 mt-2 mt-lg-0">
+                                Inscríbete Ahora
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+     
+    <section class="blender-banner position-relative overflow-hidden">
+        <div class="banner-overlay position-absolute w-100 h-100"></div>
+        <div class="banner-particles position-absolute w-100 h-100"></div>
+        <div class="banner-content position-relative d-flex flex-column align-items-center justify-content-center text-center px-4">
+            <h1 class="banner-title display-1 fw-bold text-white mb-4">
+                Mis Proyectos en Blender
+            </h1>
+            <p class="banner-subtitle fs-3 text-white">
+                Modelado 3D • Escenas • Renderizados Profesionales
+            </p>
+        </div>
+    </section>
+
+     
+    <section class="carousel-section position-relative px-3 px-md-4 pb-5">
+        <div class="container">
+            <div class="carousel-container position-relative overflow-hidden rounded-4 shadow-lg">
+                <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="5000">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" 
+                                 class="d-block w-100 carousel-image" alt="Innovación">
+                            <div class="carousel-gradient"></div>
+                            <div class="carousel-caption-custom">
+                                <div class="container">
+                                    <span class="iconify carousel-icon mb-3" data-icon="mdi:rocket-launch" data-width="48"></span>
+                                    <h5 class="carousel-title display-4 fw-bold mb-3">Innovación sin límites</h5>
+                                    <p class="carousel-description fs-5">
+                                        Descubre cómo la tecnología impulsa tu crecimiento con soluciones creativas y efectivas.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item" data-bs-interval="5000">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" 
+                                 class="d-block w-100 carousel-image" alt="Ideas">
+                            <div class="carousel-gradient"></div>
+                            <div class="carousel-caption-custom">
+                                <div class="container">
+                                    <span class="iconify carousel-icon mb-3" data-icon="mdi:lightbulb-on" data-width="48"></span>
+                                    <h5 class="carousel-title display-4 fw-bold mb-3">Ideas que inspiran</h5>
+                                    <p class="carousel-description fs-5">
+                                        Diseñamos experiencias digitales atractivas que conectan con tu audiencia.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item" data-bs-interval="5000">
+                            <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&q=80" 
+                                 class="d-block w-100 carousel-image" alt="Resultados">
+                            <div class="carousel-gradient"></div>
+                            <div class="carousel-caption-custom">
+                                <div class="container">
+                                    <span class="iconify carousel-icon mb-3" data-icon="mdi:trending-up" data-width="48"></span>
+                                    <h5 class="carousel-title display-4 fw-bold mb-3">Resultados reales</h5>
+                                    <p class="carousel-description fs-5">
+                                        Optimiza tus procesos y potencia tu marca con estrategias medibles.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     
+                    <button class="carousel-control-prev carousel-control-custom" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                        <span class="iconify" data-icon="mdi:chevron-left" data-width="32"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next carousel-control-custom" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                        <span class="iconify" data-icon="mdi:chevron-right" data-width="32"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+
+                     
+                    <div class="carousel-indicators carousel-indicators-custom">
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     
+    <section class="projects-section py-5">
+        <div class="container">
+            <h2 class="text-center display-4 fw-bold mb-5">Proyectos Demo</h2>
+            <div class="row g-4">
+                 
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <div class="project-image-wrapper overflow-hidden">
+                            <img src="/modern-3d-architecture-render.jpg" class="card-img-top project-image" alt="Modelado Arquitectónico">
+                            <div class="project-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Modelado Arquitectónico</h5>
+                            <p class="card-text text-muted">
+                                Diseño 3D de espacios modernos con iluminación realista y materiales PBR avanzados.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <button class="btn btn-primary w-100">
+                                <span class="iconify me-2" data-icon="mdi:eye" data-width="20"></span>
+                                Ver Proyecto
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <div class="project-image-wrapper overflow-hidden">
+                            <img src="/3d-stylized-character-blender.jpg" class="card-img-top project-image" alt="Personaje Stylized">
+                            <div class="project-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Personaje Stylized</h5>
+                            <p class="card-text text-muted">
+                                Creación de personajes con estilo cartoon, rigging completo y animaciones fluidas.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <button class="btn btn-primary w-100">
+                                <span class="iconify me-2" data-icon="mdi:eye" data-width="20"></span>
+                                Ver Proyecto
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <div class="project-image-wrapper overflow-hidden">
+                            <img src="/product-3d-render-photorealistic.jpg" class="card-img-top project-image" alt="Producto Comercial">
+                            <div class="project-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Producto Comercial</h5>
+                            <p class="card-text text-muted">
+                                Renderizado fotorrealista de productos para marketing y publicidad digital.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <button class="btn btn-primary w-100">
+                                <span class="iconify me-2" data-icon="mdi:eye" data-width="20"></span>
+                                Ver Proyecto
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <div class="project-image-wrapper overflow-hidden">
+                            <img src="/scifi-3d-scene-blender.jpg" class="card-img-top project-image" alt="Escena Sci-Fi">
+                            <div class="project-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Escena Sci-Fi</h5>
+                            <p class="card-text text-muted">
+                                Ambientación futurista con efectos de partículas, volumétricos y post-procesado.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <button class="btn btn-primary w-100">
+                                <span class="iconify me-2" data-icon="mdi:eye" data-width="20"></span>
+                                Ver Proyecto
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Footer -->
+    <footer class="footer-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Company Info -->
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <iconify-icon icon="material-symbols:shield-outline" class="footer-logo-icon me-2"></iconify-icon>
+                            <span class="footer-logo-text">DIGITALBLERD</span>
+                        </div>
+                        <p class="footer-description">
+                            La academia premium de diseño 3D en español. Transformamos creativos en profesionales con salarios competitivos en la industria del entretenimiento digital.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Enlaces Rápidos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#programa">Programa del Curso</a></li>
+                        <li><a href="#metodologia">Metodología</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#recursos">Recursos Gratuitos</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contacto</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <iconify-icon icon="material-symbols:mail-outline" class="me-2"></iconify-icon>
+                            hola@digitalblerd.es
+                        </li>
+                        <li>
+                            <iconify-icon icon="material-symbols:phone" class="me-2"></iconify-icon>
+                            +34 900 123 456
+                        </li>
+                        <li>
+                            <iconify-icon icon="material-symbols:location-on" class="me-2"></iconify-icon>
+                            Madrid, España
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Síguenos</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:youtube"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:instagram"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:twitter"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:linkedin"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+            <div class="footer-copyright">
+                <p class="mb-0">
+                    &copy; 2025 DIGITALBLERD Academy. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Iconify -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@latest/dist/iconify-icon.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/blender-scripts.js"></script>
+</body>
+
+</html>

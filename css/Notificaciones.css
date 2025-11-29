@@ -1,0 +1,49 @@
+/* --- Toast Container --- */
+.toast-alert {
+    position: fixed;
+    top: 20px;
+    right: -350px; /* Hidden initially */
+    background: var(--card, #ffffff);
+    padding: 1rem 1.3rem;
+    width: 320px;
+    border-radius: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    border-left: 6px solid var(--primary, #0066ff);
+    opacity: 0;
+    z-index: 9999;
+    transition: all .35s ease;
+}
+
+/* --- Visible State --- */
+.toast-show {
+    right: 20px;
+    opacity: 1;
+}
+
+/* --- Icon Animation --- */
+.toast-icon iconify-icon {
+    color: var(--primary, #0066ff);
+    animation: iconPulse 1.4s infinite ease-in-out;
+}
+
+/* Pulsing effect */
+@keyframes iconPulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.25); opacity: .7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Text */
+.toast-content strong {
+    font-size: 1rem;
+    color: var(--foreground, #111);
+}
+
+.toast-content p {
+    font-size: .85rem;
+    color: var(--muted-foreground, #555);
+    margin: 0;
+}

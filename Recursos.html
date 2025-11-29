@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ion--shield-outline.svg" type="image/svg+xml">
+    <title>DIGITALBLERD - Master 3D Design & Animation</title>
+    <meta name="description" content="Domina Blender desde cero hasta nivel profesional en 5 meses. Únete a más de 500 graduados que han transformado su futuro profesional.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/Recursos.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar-custom fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo -->
+                <a href="index.html" class="navbar-brand logo-brand">
+                    <div class="logo-icon">
+                        <iconify-icon icon="material-symbols:shield-outline" width="32" height="32"></iconify-icon>
+                    </div>
+                    <span class="logo-text">DIGITALBLERD</span>
+                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <iconify-icon icon="material-symbols:menu" class="menu-icon"></iconify-icon>
+                    <iconify-icon icon="material-symbols:close" class="close-icon d-none"></iconify-icon>
+                </button>
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="Instalación.html">Instalación</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="Características.html">Características</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="Precios.html">Precios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="Recursos.html">Recursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#blog">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Inscripcion.html" class="btn btn-cta-custom ms-lg-3 mt-2 mt-lg-0">
+                                Inscríbete Ahora
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-blender">
+        <div class="hero-overlay"></div>
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="hero-blender-title animate-fade-in-up">
+                        Recursos para Dominar Blender
+                    </h1>
+                    <p class="text-white fs-5 mt-3 animate-fade-in-up animation-delay-100" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+                        Tutoriales, documentación, comunidad y herramientas para llevar tus habilidades al siguiente nivel
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Grid Section -->
+    <section class="py-5" style="background: var(--background);">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Tutoriales Oficiales -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-fade-in-up animation-delay-200">
+                        <div class="feature-image-wrapper">
+                            <img src="https://www.blender.org/wp-content/uploads/2017/11/ghost_driver_lukas_walzer-480x270.jpg" alt="Tutoriales Oficiales" class="feature-image">
+                            <div class="feature-overlay">
+                                <iconify-icon icon="mdi:school" class="feature-icon"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Tutoriales Oficiales</h3>
+                            <p class="feature-description">
+                                Aprende directamente de los expertos con tutoriales oficiales paso a paso que cubren desde lo básico hasta técnicas avanzadas.
+                            </p>
+                            <a href="#" class="feature-link">
+                                EXPLORAR TUTORIALES
+                                <iconify-icon icon="mdi:arrow-right" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentación -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-fade-in-up animation-delay-300">
+                        <div class="feature-image-wrapper">
+                            <img src="https://www.blender.org/wp-content/uploads/2019/07/digital_sculpting-480x270.jpg" alt="Documentación" class="feature-image">
+                            <div class="feature-overlay">
+                                <iconify-icon icon="mdi:book-open-page-variant" class="feature-icon"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Representación</h3>
+                            <p class="feature-description">
+                                Accede a la documentación completa de Blender con referencias detalladas de cada herramienta, función y característica del software.
+                            </p>
+                            <a href="#" class="feature-link">
+                                VER MÁS
+                                <iconify-icon icon="mdi:arrow-right" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comunidad -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-fade-in-up animation-delay-400">
+                        <div class="feature-image-wrapper">
+                            <img src="Instagram_files/KAISER.webp" alt="Comunidad" class="feature-image">
+                            <div class="feature-overlay">
+                                <iconify-icon icon="mdi:account-group" class="feature-icon"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Animación y rigging</h3>
+                            <p class="feature-description">
+                                Diseñado para la animación, Blender se utiliza actualmente para cortometrajes y largometrajes premiados.
+                            </p>
+                            <a href="#" class="feature-link">
+                                CONOCE MÁS
+                                <iconify-icon icon="mdi:arrow-right" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add-ons y Plugins -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-fade-in-up animation-delay-300">
+                        <div class="feature-image-wrapper">
+                            <img src="https://extensions.blender.org/media/thumbnails/df/dfab2aaaf651ac3a04af85b906749b0d31cbbec2c497250825738b4f9a2e13b0_640x360.webp" alt="Add-ons y Plugins" class="feature-image">
+                            <div class="feature-overlay">
+                                <iconify-icon icon="mdi:puzzle" class="feature-icon"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Add-ons y Plugins</h3>
+                            <p class="feature-description">
+                                Expande las capacidades de Blender con miles de add-ons gratuitos y de pago que automatizan tareas y añaden nuevas funcionalidades.
+                            </p>
+                            <a href="#" class="feature-link">
+                                DESCUBRIR ADD-ONS
+                                <iconify-icon icon="mdi:arrow-right" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assets y Modelos -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-fade-in-up animation-delay-400">
+                        <div class="feature-image-wrapper">
+                            <img src="/Instagram_files/JAGGER.webp" alt="Assets y Modelos" class="feature-image">
+                            <div class="feature-overlay">
+                                <iconify-icon icon="mdi:cube-outline" class="feature-icon"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Assets y Modelos</h3>
+                            <p class="feature-description">
+                                Descarga modelos 3D, texturas, materiales y assets gratuitos para acelerar tu flujo de trabajo y mejorar tus proyectos.
+                            </p>
+                            <a href="#" class="feature-link">
+                                EXPLORAR ASSETS
+                                <iconify-icon icon="mdi:arrow-right" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cursos en Video -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-fade-in-up animation-delay-500">
+                        <div class="feature-image-wrapper">
+                            <img src="https://imgproxy.domestika.org/unsafe/w:820/plain/src://content-items/008/756/926/12616-big-original.gif?1628599070" alt="Cursos en Video" class="feature-image">
+                            <div class="feature-overlay">
+                                <iconify-icon icon="mdi:play-circle" class="feature-icon"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Cursos en Video</h3>
+                            <p class="feature-description">
+                                Accede a cursos completos en plataformas como YouTube, Udemy y Skillshare con instructores expertos en Blender.
+                            </p>
+                            <a href="#" class="feature-link">
+                                VER CURSOS
+                                <iconify-icon icon="mdi:arrow-right" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+
+                <!-- Plantillas de Proyecto -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-fade-in-up animation-delay-400">
+                        <div class="feature-image-wrapper">
+                            <img src="https://preview.free3d.com/img/2015/12/1741484482722006912/i8ikuwn4.jpg" alt="Plantillas de Proyecto" class="feature-image">
+                            <div class="feature-overlay">
+                                <iconify-icon icon="mdi:file-document-multiple" class="feature-icon"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Plantillas de Proyecto</h3>
+                            <p class="feature-description">
+                                Comienza rápidamente con plantillas pre-configuradas para diferentes tipos de proyectos: animación, arquitectura, VFX y más.
+                            </p>
+                            <a href="#" class="feature-link">
+                                DESCARGAR PLANTILLAS
+                                <iconify-icon icon="mdi:arrow-right" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Texturas y Materiales -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-fade-in-up animation-delay-500">
+                        <div class="feature-image-wrapper">
+                            <img src="https://auraprods.com/wp-content/uploads/2025/03/ambientCG-Blender-1024x524.webp" alt="Texturas y Materiales" class="feature-image">
+                            <div class="feature-overlay">
+                                <iconify-icon icon="mdi:texture" class="feature-icon"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Texturas y Materiales</h3>
+                            <p class="feature-description">
+                                Descarga bibliotecas de texturas PBR, materiales procedurales y shaders para dar vida a tus modelos 3D.
+                            </p>
+                            <a href="#" class="feature-link">
+                                EXPLORAR TEXTURAS
+                                <iconify-icon icon="mdi:arrow-right" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foros y Soporte -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-fade-in-up animation-delay-300">
+                        <div class="feature-image-wrapper">
+                            <img src="/placeholder.svg?height=250&width=400" alt="Foros y Soporte" class="feature-image">
+                            <div class="feature-overlay">
+                                <iconify-icon icon="mdi:forum" class="feature-icon"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Foros y Soporte</h3>
+                            <p class="feature-description">
+                                Obtén ayuda de la comunidad en foros oficiales, Stack Exchange y grupos especializados donde expertos responden tus dudas.
+                            </p>
+                            <a href="#" class="feature-link">
+                                VISITAR FOROS
+                                <iconify-icon icon="mdi:arrow-right" class="ms-2"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-white mb-3" style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700;">
+                        ¿Listo para Comenzar tu Viaje en Blender?
+                    </h2>
+                    <p class="text-white mb-4 fs-5" style="opacity: 0.9;">
+                        Explora todos estos recursos y conviértete en un experto en creación 3D
+                    </p>
+                    <a href="index.html" class="btn btn-light btn-lg px-5 py-3" style="font-weight: 600; border-radius: var(--radius);">
+                        Ver Características de Blender
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Company Info -->
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <iconify-icon icon="material-symbols:shield-outline" class="footer-logo-icon me-2"></iconify-icon>
+                            <span class="footer-logo-text">DIGITALBLERD</span>
+                        </div>
+                        <p class="footer-description">
+                            La academia premium de diseño 3D en español. Transformamos creativos en profesionales con salarios competitivos en la industria del entretenimiento digital.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Enlaces Rápidos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#programa">Programa del Curso</a></li>
+                        <li><a href="#metodologia">Metodología</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#recursos">Recursos Gratuitos</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contacto</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <iconify-icon icon="material-symbols:mail-outline" class="me-2"></iconify-icon>
+                            hola@digitalblerd.es
+                        </li>
+                        <li>
+                            <iconify-icon icon="material-symbols:phone" class="me-2"></iconify-icon>
+                            +34 900 123 456
+                        </li>
+                        <li>
+                            <iconify-icon icon="material-symbols:location-on" class="me-2"></iconify-icon>
+                            Madrid, España
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Síguenos</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:youtube"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:instagram"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:twitter"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:linkedin"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+            <div class="footer-copyright">
+                <p class="mb-0">
+                    &copy; 2025 DIGITALBLERD Academy. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Iconify -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@latest/dist/iconify-icon.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
