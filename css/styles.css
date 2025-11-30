@@ -788,3 +788,9 @@ button:focus,
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
 }
+
+/* Payment Modal Backdrop */
+.modal-backdrop {
+  --bs-backdrop-bg: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}

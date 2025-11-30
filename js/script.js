@@ -182,6 +182,40 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("⏱️ Page load time:", perf.loadEventEnd - perf.loadEventStart, "ms")
     }, 0)
   }
+  // ========== PAYMENT GATEWAY SIMULATION ==========
+  const paymentModalElement = document.getElementById("paymentModal")
+  const paymentModal = paymentModalElement ? new bootstrap.Modal(paymentModalElement) : null
+  const paymentLoading = document.getElementById("paymentLoading")
+  const paymentSuccess = document.getElementById("paymentSuccess")
+  const planNameElement = document.getElementById("planName")
+
+  document.querySelectorAll(".btn-subscribe").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault()
+      const plan = btn.dataset.plan
+      
+      if (paymentModal && paymentLoading && paymentSuccess && planNameElement) {
+        // Reset state
+        paymentLoading.classList.remove("d-none")
+        paymentSuccess.classList.add("d-none")
+        planNameElement.textContent = plan
+        
+        // Show modal
+        paymentModal.show()
+        
+        // Simulate processing
+        setTimeout(() => {
+          paymentLoading.classList.add("d-none")
+          paymentSuccess.classList.remove("d-none")
+          
+          // Close after success
+          setTimeout(() => {
+            paymentModal.hide()
+          }, 3000)
+        }, 2000)
+      }
+    })
+  })
 })
 
 // ========== DEBOUNCE & OPTIMIZED SCROLL HANDLER ==========
