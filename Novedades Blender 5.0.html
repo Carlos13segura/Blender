@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ion--shield-outline.svg" type="image/svg+xml">
+    <title>Blender 5.0 "Hi Five" - Todas las Novedades | DIGITALBLERD</title>
+    <meta name="description"
+        content="Guía completa de Blender 5.0: HDR y Color Management, Sky Texture mejorado, Cycles optimizado, EEVEE más rápido, Compositor con Asset Shelf, Grease Pencil 3, nuevos modificadores y mucho más.">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar-custom fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a href="index.html" class="navbar-brand logo-brand">
+                    <div class="logo-icon">
+                        <iconify-icon icon="material-symbols:shield-outline" width="32" height="32"></iconify-icon>
+                    </div>
+                    <span class="logo-text">DIGITALBLERD</span>
+                </a>
+
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <iconify-icon icon="material-symbols:menu" class="menu-icon"></iconify-icon>
+                    <iconify-icon icon="material-symbols:close" class="close-icon d-none"></iconify-icon>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="Instalación.html">Instalación</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="Características.html">Características</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="Precios.html">Precios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="Recursos.html">Recursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="Blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Inscripcion.html" class="btn btn-cta-custom ms-lg-3 mt-2 mt-lg-0">
+                                Inscríbete Ahora
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content animate-fade-in-up">
+                        <div class="badge tag-month mb-3">
+                            <iconify-icon icon="mdi:star" class="me-2"></iconify-icon>
+                            Nueva Versión Disponible
+                        </div>
+                        <h1 class="hero-title">
+                            Blender 5.0 <span class="text-gradient-primary">"Hi Five"</span>
+                        </h1>
+                        <p class="hero-description">
+                            La actualización más revolucionaria de Blender hasta la fecha con soporte HDR completo,
+                            color management renovado, renderizado más rápido y cientos de mejoras.
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="https://www.blender.org/download/" target="_blank" class="btn btn-primary-custom">
+                                <iconify-icon icon="mdi:download" class="me-2"></iconify-icon>
+                                Descargar Blender 5.0
+                            </a>
+                            <a href="#color-management" class="btn btn-secondary-custom">
+                                <iconify-icon icon="mdi:arrow-down" class="me-2"></iconify-icon>
+                                Explorar Novedades
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-container animate-fade-in-right animation-delay-200">
+                        <div class="hero-image-wrapper">
+                            <div class="hero-image"
+                                style="background: var(--gradient-primary); height: 400px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; font-weight: 900;">
+                                5.0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Management Section -->
+    <section class="featured-projects" id="color-management">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Gestión de Color Revolucionaria</h2>
+                <p class="section-subtitle">
+                    Blender 5.0 introduce un pipeline de color management completamente renovado con soporte nativo para
+                    HDR y wide-gamut
+                </p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:hdr"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">HDR Ready</h3>
+                            <p class="project-description">
+                                Blender ahora puede mostrar y exportar colores HDR y wide-gamut para imágenes y video.
+                                Incluye soporte para Rec.2100-PQ, Rec.2100-HLG y AgX HDR.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge tag-month">ACES 1.3</span>
+                                <span class="badge tag-month">ACES 2.0</span>
+                                <span class="badge tag-success">HDR Export</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:palette"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">Working Color Space</h3>
+                            <p class="project-description">
+                                Nuevo espacio de color de trabajo por archivo blend. Soporte para Linear Rec.2020 y
+                                ACEScg permite usar una gama más amplia de colores para materiales, luces y compositing.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge tag-month">Rec.2020</span>
+                                <span class="badge tag-month">ACEScg</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:movie-open"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">ACES Compatible</h3>
+                            <p class="project-description">
+                                Soporte esencial para flujos de trabajo ACES 1.3 y 2.0 con el espacio de trabajo ACEScg.
+                                Compatible con pipelines de estudio profesionales.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge tag-success">VFX Platform 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="d-flex align-items-start gap-3">
+                    <iconify-icon icon="mdi:information" class="module-icon"></iconify-icon>
+                    <div>
+                        <h4 class="module-title">Más Mejoras en Color Management</h4>
+                        <ul class="module-description">
+                            <li>Nuevo nodo <strong>Convert to Display</strong> en el Compositor</li>
+                            <li>Colores de pinceles y paletas ahora son scene linear</li>
+                            <li>Nuevo toggle Linear/Perceptual en los selectores de color</li>
+                            <li>Tooltips con descripciones de displays, views y espacios de color</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rendering Section -->
+    <section class="curriculum-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Renderizado Mejorado</h2>
+                <p class="section-subtitle">
+                    Nuevas características de shading y renderizado que elevan la calidad visual
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="module-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <iconify-icon icon="mdi:weather-sunset" class="module-icon"></iconify-icon>
+                            <div>
+                                <h4 class="module-title">Sky Texture con Multiple Scattering</h4>
+                                <p class="module-description">
+                                    El nodo Sky Texture ahora soporta multiple scattering, proporcionando efectos más
+                                    realistas proceduralmente. Genera escenas de atardecer animando un solo parámetro.
+                                    Funciona perfectamente tanto en Cycles como en EEVEE.
+                                </p>
+                                <div class="d-flex gap-2 flex-wrap mt-3">
+                                    <span class="badge tag-month">Day & Night</span>
+                                    <span class="badge tag-success">Realistic</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="module-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <iconify-icon icon="mdi:vector-circle" class="module-icon"></iconify-icon>
+                            <div>
+                                <h4 class="module-title">Radial Tiling Node</h4>
+                                <p class="module-description">
+                                    Nuevo nodo Radial Tiling como bloque de construcción para crear formas y patrones,
+                                    incluyendo esquinas redondeadas. Perfecto para diseños procedurales complejos.
+                                </p>
+                                <div class="d-flex gap-2 flex-wrap mt-3">
+                                    <span class="badge tag-month">NUEVO</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="module-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <iconify-icon icon="mdi:repeat" class="module-icon"></iconify-icon>
+                            <div>
+                                <h4 class="module-title">Repeat Zones en Shading</h4>
+                                <p class="module-description">
+                                    Los nodos de shading ahora soportan Repeat Zones, igual que Geometry Nodes. EEVEE
+                                    soporta conteo de iteraciones dinámico, mientras que Cycles está limitado a un
+                                    número fijo por ahora.
+                                </p>
+                                <div class="d-flex gap-2 flex-wrap mt-3">
+                                    <span class="badge tag-month">Procedural</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="module-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <iconify-icon icon="mdi:texture" class="module-icon"></iconify-icon>
+                            <div>
+                                <h4 class="module-title">Multiresolution Baking</h4>
+                                <p class="module-description">
+                                    Baking desde meshes con modificador Multiresolution mejorado enormemente. Soporte
+                                    para Vector Displacement, caras n-gon, y baking solo a imágenes seleccionadas.
+                                </p>
+                                <div class="d-flex gap-2 flex-wrap mt-3">
+                                    <span class="badge tag-success">Mejorado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="module-card mt-4">
+                <h4 class="module-title mb-3">Más Mejoras de Renderizado</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="module-description">
+                            <li>Nuevos nodos <strong>Bundle y Closure</strong></li>
+                            <li>Soporte para nodo <strong>Menu Switch</strong></li>
+                            <li><strong>Voronoi Texture</strong> más rápido</li>
+                            <li>Removido "Use Nodes"</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="module-description">
+                            <li><strong>Light Linking</strong> ahora puede ser sobreescrito</li>
+                            <li>Render passes renombrados para evitar abreviaciones</li>
+                            <li>Point Density removido</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cycles Section -->
+    <section class="featured-projects">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Cycles: Más Rápido y Preciso</h2>
+                <p class="section-subtitle">
+                    Mejoras significativas en calidad y rendimiento del motor de renderizado Cycles
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:cloud"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">Unbiased Volume Rendering</h3>
+                            <p class="project-description">
+                                Nuevo algoritmo de renderizado de volúmenes con null-scattering sin sesgo. Elimina
+                                artefactos blocky en volúmenes superpuestos y elimina la necesidad de step size y max
+                                steps.
+                            </p>
+                            <span class="badge tag-success">Por Defecto</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:human"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">Subsurface Scattering Mejorado</h3>
+                            <p class="project-description">
+                                Algoritmo random walk más preciso con múltiples rebotes, reduciendo artefactos de
+                                oscurecimiento. Ideal para renderizado realista de piel y materiales translúcidos.
+                            </p>
+                            <span class="badge tag-month">Multi Bounce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:shimmer"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">Metallic Thin Film</h3>
+                            <p class="project-description">
+                                Efectos de iridiscencia causados por thin film dieléctrico ahora soportados por metales
+                                (Metallic BSDF y Principled BSDF). Efectos físicamente precisos.
+                            </p>
+                            <span class="badge tag-month">Iridescence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:grid"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">Adaptive Subdivision</h3>
+                            <p class="project-description">
+                                Ya no es experimental y siempre disponible. Nueva opción Object Space para definir
+                                longitud de arista en espacio de objeto, permitiendo instanciado eficiente.
+                            </p>
+                            <span class="badge tag-success">Estable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:fire"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">NanoVDB para Simulaciones</h3>
+                            <p class="project-description">
+                                Simulaciones de humo y fuego ahora se renderizan con NanoVDB, mejorando
+                                significativamente el rendimiento y la calidad.
+                            </p>
+                            <span class="badge tag-month">Optimizado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:image-filter-hdr"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">OptiX Denoiser Mejorado</h3>
+                            <p class="project-description">
+                                Mejor calidad del denoiser OptiX. Nuevos passes: Portal Depth y Render Time. Curvas 3D
+                                lineales para mejor rendimiento.
+                            </p>
+                            <span class="badge tag-success">Mejorado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EEVEE Section -->
+    <section class="curriculum-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">EEVEE: Velocidad Extrema</h2>
+                <p class="section-subtitle">
+                    Compilación de materiales hasta 4x más rápida y mejor calidad visual
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="module-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <iconify-icon icon="mdi:speedometer" class="module-icon"></iconify-icon>
+                            <div>
+                                <h4 class="module-title">Compilación Más Rápida</h4>
+                                <p class="module-description">
+                                    Los materiales ahora compilan mucho más rápido en todos los backends. Esto significa
+                                    un inicio más rápido y mejor experiencia general. Configuraciones con NVIDIA y
+                                    Vulkan son hasta 4 veces más rápidas.
+                                </p>
+                                <div class="progress-bar-custom mt-3">
+                                    <div class="progress-fill" style="width: 100%;"></div>
+                                </div>
+                                <p class="progress-text mt-2">4x más rápido con Vulkan + NVIDIA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="module-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <iconify-icon icon="mdi:sphere" class="module-icon"></iconify-icon>
+                            <div>
+                                <h4 class="module-title">Mejores MatCaps</h4>
+                                <p class="module-description">
+                                    Blender 5.0 incluye MatCaps nuevos y actualizados con luz especular opcional. Esto
+                                    aumenta la calidad de shading y legibilidad en superficies oscuras.
+                                </p>
+                                <div class="d-flex gap-2 flex-wrap mt-3">
+                                    <span class="badge tag-month">Nuevos MatCaps</span>
+                                    <span class="badge tag-success">Specular Light</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compositor Section -->
+    <section class="featured-projects">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Compositor: Drag & Comp</h2>
+                <p class="section-subtitle">
+                    Nuevo Asset Shelf con efectos integrados para composición profesional
+                </p>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:palette-swatch"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">Chromatic Aberration</h3>
+                            <p class="project-description">
+                                Simula el fringing de color causado por aberración cromática de lentes. Efecto
+                                profesional con un solo clic.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:invert-colors"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">Split Toning</h3>
+                            <p class="project-description">
+                                Tiñe highlights y shadows con diferentes colores. Perfecto para looks cinematográficos y
+                                estilizados.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:tune"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">Tune Image</h3>
+                            <p class="project-description">
+                                Mejora contraste, color, claridad y nitidez. Control total sobre la apariencia final de
+                                tus renders.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <h4 class="module-title mb-3">Más Mejoras del Compositor</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="module-description">
+                            <li>Sockets de entrada/salida inline en la mayoría de nodos</li>
+                            <li>Lens Distortion preserva transparencia</li>
+                            <li>Efecto Glare de mejor calidad</li>
+                            <li>Fog Glow físicamente basado</li>
+                            <li>Interpolación Bilinear y Bicubic en Map UV</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="module-description">
+                            <li>Imágenes vectoriales 2D más rápidas y eficientes</li>
+                            <li>Z Combine renombrado a Depth Combine</li>
+                            <li>Nodo Composite ahora es Group Output</li>
+                            <li>Nodo File Output rediseñado</li>
+                            <li>Opciones de menú expuestas como inputs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grease Pencil Section -->
+    <section class="curriculum-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Grease Pencil 3</h2>
+                <p class="section-subtitle">
+                    Animación 2D más potente con nuevas herramientas y mejor rendimiento
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="module-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <iconify-icon icon="mdi:motion" class="module-icon"></iconify-icon>
+                            <div>
+                                <h4 class="module-title">Motion Blur</h4>
+                                <p class="module-description">
+                                    Los objetos Grease Pencil ahora soportan motion blur. El número de pasos puede
+                                    ajustarse para mejor calidad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="module-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <iconify-icon icon="mdi:vector-square" class="module-icon"></iconify-icon>
+                            <div>
+                                <h4 class="module-title">Sharp Corners</h4>
+                                <p class="module-description">
+                                    Los strokes pueden tener diferentes tipos de esquinas por punto: Flat, Sharp o Round
+                                    (por defecto).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="module-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <iconify-icon icon="mdi:circle-outline" class="module-icon"></iconify-icon>
+                            <div>
+                                <h4 class="module-title">Cyclical Strokes</h4>
+                                <p class="module-description">
+                                    Los strokes cíclicos ahora conectan correctamente los segmentos de inicio y fin sin
+                                    gaps ni overlaps.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="module-card mt-4">
+                <h4 class="module-title mb-3">Más Herramientas de Grease Pencil</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="module-description">
+                            <li>Nuevo panel Curve Data en Edit Mode</li>
+                            <li>Nueva herramienta <strong>Pen Tool</strong></li>
+                            <li>Interpolación para curvas Bézier y Catmull-Rom</li>
+                            <li>Operador <strong>Join Strokes</strong></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="module-description">
+                            <li>Handles Bézier coinciden con colores de Curve</li>
+                            <li>Exportar Bézier, Catmull-Rom y NURBS a SVG</li>
+                            <li>Cambios en Python API</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modeling Section -->
+    <section class="featured-projects">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Modelado y UV</h2>
+                <p class="section-subtitle">
+                    Nuevos modificadores y herramientas UV completamente renovadas
+                </p>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:view-array"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">Array Modifier Renovado</h3>
+                            <p class="project-description">
+                                ¡Di hola al nuevo modificador Array! Con soporte para distribución circular,
+                                randomización, gizmos y más. Construido usando Geometry Nodes, permitiendo
+                                personalización completa.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap mt-3">
+                                <span class="badge tag-success">Geometry Nodes</span>
+                                <span class="badge tag-month">Circular</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <iconify-icon icon="mdi:texture-box"
+                                style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></iconify-icon>
+                            <h3 class="project-title">UV Sync Renovado</h3>
+                            <p class="project-description">
+                                La función UV Sync ha sido completamente renovada, corrigiendo problemas antiguos y
+                                añadiendo nuevas características. Ahora está habilitada por defecto.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap mt-3">
+                                <span class="badge tag-success">Por Defecto</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <h4 class="module-title mb-3">Nuevos Modificadores (Geometry Nodes)</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="module-description">
+                            <li><strong>Scatter on Surface</strong> - Distribuye instancias en superficies</li>
+                            <li><strong>Instance on Elements</strong> - Instancia en elementos de geometría</li>
+                            <li><strong>Randomize Instances</strong> - Randomiza transformaciones</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="module-description">
+                            <li><strong>Curve to Tube</strong> - Convierte curvas en tubos</li>
+                            <li><strong>Geometry Input</strong> - Input de geometría externa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="module-card mt-4">
+                <h4 class="module-title mb-3">Mejoras UV</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="module-description">
+                            <li>Pack en región personalizada</li>
+                            <li>Min y Max Align Vertically/Horizontally</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="module-description">
+                            <li>Arrange and Align selected UV Islands</li>
+                            <li>Move Selected UV's on Axis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Features Section -->
+    <section class="curriculum-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Y Hay Más...</h2>
+                <p class="section-subtitle">
+                    Cientos de mejoras adicionales en toda la aplicación
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="module-card">
+                        <h5 class="module-title">Geometry Nodes</h5>
+                        <ul class="module-description">
+                            <li>Bundles & Closures</li>
+                            <li>Nuevas formas de sockets</li>
+                            <li>Nodos Volume Grid & SDF</li>
+                            <li>Viewer mejorado</li>
+                            <li>Nuevos assets Essentials</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="module-card">
+                        <h5 class="module-title">Core</h5>
+                        <ul class="module-description">
+                            <li>Nombres de data-block más largos</li>
+                            <li>Packed Data-blocks</li>
+                            <li>Buffers más grandes en .blend</li>
+                            <li>Nuevas variables de Path Template</li>
+                            <li>Compresión por defecto</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="module-card">
+                        <h5 class="module-title">Interface</h5>
+                        <ul class="module-description">
+                            <li>Shortcuts de colección movidos al Outliner</li>
+                            <li>Saltar a keyframe con flechas</li>
+                            <li>Paths muestran ~/ para Home</li>
+                            <li>Logging mejorado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="cta-title">¿Listo para Dominar Blender 5.0?</h2>
+                    <p class="cta-description">
+                        Descarga gratis la última versión o aprende a usar todas estas nuevas características en nuestro
+                        curso completo
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="https://www.blender.org/download/" target="_blank" class="btn btn-orange-custom">
+                            <iconify-icon icon="mdi:download" class="me-2"></iconify-icon>
+                            Descargar Blender 5.0
+                        </a>
+                        <a href="Inscripcion.html" class="btn btn-outline-custom">
+                            <iconify-icon icon="mdi:school" class="me-2"></iconify-icon>
+                            Inscríbete al Curso
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <iconify-icon icon="material-symbols:shield-outline"
+                                class="footer-logo-icon me-2"></iconify-icon>
+                            <span class="footer-logo-text">DIGITALBLERD</span>
+                        </div>
+                        <p class="footer-description">
+                            La academia premium de diseño 3D en español. Transformamos creativos en profesionales con
+                            salarios competitivos en la industria del entretenimiento digital.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Enlaces Rápidos</h5>
+                    <ul class="footer-links">
+                        <li><a href="Instalación.html">Instalación</a></li>
+                        <li><a href="Características.html">Características</a></li>
+                        <li><a href="Precios.html">Precios</a></li>
+                        <li><a href="Recursos.html">Recursos Gratuitos</a></li>
+                        <li><a href="Blog.html">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Contacto</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <iconify-icon icon="material-symbols:mail-outline" class="me-2"></iconify-icon>
+                            hola@digitalblerd.es
+                        </li>
+                        <li>
+                            <iconify-icon icon="material-symbols:phone" class="me-2"></iconify-icon>
+                            +34 900 123 456
+                        </li>
+                        <li>
+                            <iconify-icon icon="material-symbols:location-on" class="me-2"></iconify-icon>
+                            México, Puebla
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Síguenos</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:youtube"></iconify-icon>
+                        </a>
+                        <a href="https://www.instagram.com/proyectosblender_07/" class="social-link">
+                            <iconify-icon icon="mdi:instagram"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:twitter"></iconify-icon>
+                        </a>
+                        <a href="#" class="social-link">
+                            <iconify-icon icon="mdi:linkedin"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+            <div class="footer-copyright">
+                <p class="mb-0">
+                    &copy; 2025 DIGITALBLERD Academy. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Iconify -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@latest/dist/iconify-icon.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .module-card, .metric-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
