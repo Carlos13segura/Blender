@@ -20,18 +20,18 @@ import gsap from 'gsap';
               de Cero a <span class="text-gradient">Pro</span>
             </h1>
             <p class="hero-lead mb-5">
-              Únete al máster más completo de habla hispana. 5 meses de inmersión total 
+              Únete al máster más completo de habla hispana. 5 meses de inmersión total
               para transformar tu creatividad en una carrera profesional de alto nivel.
             </p>
             <div class="d-flex gap-4 flex-wrap">
               <a routerLink="/inscripcion" class="btn btn-primary-glow btn-lg">Empezar Máster</a>
               <a href="#modules" class="btn btn-outline-premium btn-lg">Ver Plan de Estudios</a>
             </div>
-            
+
             <div class="mt-5 d-flex gap-5 stats-row">
               <div class="stat-item">
-                <div class="stat-value">+{{data?.metrics?.students || 500}}</div>
-                <div class="stat-label">Graduados</div>
+                <div class="stat-value">+{{data?.metrics?.students || 120}}</div>
+                <div class="stat-label">Proyectos</div>
               </div>
               <div class="stat-item">
                 <div class="stat-value">{{data?.metrics?.rating || 4.9}}</div>
@@ -43,7 +43,7 @@ import gsap from 'gsap';
               </div>
             </div>
           </div>
-          
+
           <div class="col-lg-5 mt-5 mt-lg-0" #heroVisual>
             <div class="visual-wrapper glass-card">
               <div class="render-preview">
@@ -114,7 +114,7 @@ import gsap from 'gsap';
       justify-content: center;
       box-shadow: 0 10px 40px -10px var(--primary-glow);
       transition: var(--transition-smooth);
-      
+
       &:hover {
         transform: translateY(-5px) scale(1.02);
         box-shadow: 0 20px 50px -10px var(--primary-glow);
@@ -133,7 +133,7 @@ import gsap from 'gsap';
       align-items: center;
       justify-content: center;
       transition: var(--transition-smooth);
-      
+
       &:hover {
         background: var(--glass);
         border-color: var(--primary);
@@ -160,7 +160,7 @@ import gsap from 'gsap';
       transform: perspective(1000px) rotateY(-10deg);
       border-radius: 30px;
       background: hsla(230, 25%, 15%, 0.4);
-      
+
       .render-preview {
         height: 480px;
         border-radius: 22px;
@@ -168,7 +168,7 @@ import gsap from 'gsap';
         overflow: hidden;
         background: black;
       }
-      
+
       .render-img {
         width: 100%;
         height: 100%;
@@ -191,16 +191,24 @@ import gsap from 'gsap';
     }
 
     @media (max-width: 991px) {
-      .hero-container { padding-top: 140px; }
+      .hero-container { padding-top: 140px; text-align: center; }
       .hero-title { font-size: 3rem; }
-      .visual-wrapper { margin-top: 3rem; transform: none; }
+      .hero-lead { margin-left: auto; margin-right: auto; }
+      .stats-row { justify-content: center; gap: 30px !important; }
+      .visual-wrapper { margin-top: 4rem; transform: none; }
+      .floating-label { right: 20px; bottom: 20px; }
+    }
+
+    @media (max-width: 576px) {
+      .hero-title { font-size: 2.2rem; }
+      .stats-row { flex-direction: column; gap: 20px !important; align-items: center; }
     }
   `]
 })
 export class HeroComponent implements AfterViewInit {
   @ViewChild('heroContent') content!: ElementRef;
   @ViewChild('heroVisual') visual!: ElementRef;
-  
+
   private courseService = inject(CourseService);
   data?: CourseData;
 

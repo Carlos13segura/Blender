@@ -59,10 +59,14 @@ import { bootstrapLightningChargeFill, bootstrapShieldLockFill, bootstrapPuzzleF
   `,
   styles: [`
     .py-100 { padding: 100px 0; }
-    .mt-100 { margin-top: 100px; }
+    .mt-100 { 
+      margin-top: 100px;
+      @media (max-width: 991px) { margin-top: 50px; }
+    }
     
     .feature-box {
       text-align: center;
+      @media (max-width: 768px) { padding: 2rem !important; }
       .icon-circle {
         width: 80px;
         height: 80px;

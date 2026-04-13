@@ -63,7 +63,14 @@ import {
   `,
   styles: [`
     .py-100 { padding: 100px 0; }
-    .mb-100 { margin-bottom: 100px; }
+    .mb-100 { 
+      margin-bottom: 100px;
+      @media (max-width: 991px) { margin-bottom: 50px; }
+    }
+    
+    .display-1 {
+      @media (max-width: 768px) { font-size: 2.8rem; }
+    }
     
     .feature-card {
       overflow: hidden;

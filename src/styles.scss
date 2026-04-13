@@ -24,6 +24,13 @@
   --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Responsive Typography Base */
+html {
+  font-size: 16px;
+  @media (max-width: 1200px) { font-size: 15px; }
+  @media (max-width: 991px) { font-size: 14px; }
+}
+
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
@@ -31,6 +38,14 @@ body {
   margin: 0;
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+/* Container Polish */
+.container {
+  @media (max-width: 576px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 h1, h2, h3, h4, .display-font {
@@ -49,9 +64,11 @@ h1, h2, h3, h4, .display-font {
   transition: var(--transition-smooth);
   
   &:hover {
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px -15px var(--primary-glow);
-    transform: translateY(-8px);
+    @media (min-width: 992px) {
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px -15px var(--primary-glow);
+      transform: translateY(-8px);
+    }
   }
 }
 
@@ -67,18 +84,11 @@ h1, h2, h3, h4, .display-font {
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-dark);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--glass-border);
-  border-radius: 10px;
-  &:hover {
-    background: var(--primary);
+/* Section Spacing */
+.py-100 {
+  padding: 100px 0;
+  @media (max-width: 768px) {
+    padding: 60px 0;
   }
 }
 
@@ -92,4 +102,10 @@ h1, h2, h3, h4, .display-font {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Utility for text center on mobile */
+@media (max-width: 991px) {
+  .text-mobile-center { text-align: center !important; }
+  .justify-mobile-center { justify-content: center !important; }
 }

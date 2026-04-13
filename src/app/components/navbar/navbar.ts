@@ -133,13 +133,23 @@ import gsap from 'gsap';
     }
 
     @media (max-width: 991px) {
+      .navbar { padding: 1rem 0; }
       .navbar-collapse {
-        background: var(--bg-dark);
-        padding: 1.5rem;
-        border-radius: 20px;
+        background: hsla(230, 25%, 7%, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 2rem;
+        border-radius: 24px;
         margin-top: 1rem;
         border: 1px solid var(--glass-border);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
       }
+      .nav-item { width: 100%; text-align: center; }
+      .btn-premium { width: 100%; margin-top: 0.5rem; }
+    }
+    
+    @media (max-width: 576px) {
+      .brand-text { font-size: 1.1rem; }
+      .brand-icon { font-size: 1.5rem; }
     }
   `]
 })

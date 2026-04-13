@@ -116,9 +116,14 @@ import { CourseService } from '../../services/course';
       }
     }
 
-    select.premium-input option {
-      background: var(--bg-dark);
-      color: white;
+    @media (max-width: 991px) {
+      .enrollment-page { text-align: center; }
+      .display-3 { font-size: 2.5rem; }
+    }
+
+    @media (max-width: 576px) {
+      .d-flex.gap-3 { flex-direction: column; }
+      .plan-option { width: 100%; }
     }
   `]
 })

@@ -18,7 +18,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal';
             <div class="col-lg-4 text-center">
               <div class="image-stack">
                 <div class="image-bg bg-gradient-main"></div>
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&h=300&fit=crop" 
+                <img src=""
                      class="instructor-img" alt="Instructor">
               </div>
             </div>
@@ -27,10 +27,10 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal';
               <h2 class="display-4 mb-3">{{data?.instructor?.name}}</h2>
               <h5 class="text-muted mb-4">{{data?.instructor?.title}}</h5>
               <p class="instructor-bio mb-4">{{data?.instructor?.bio}}</p>
-              
+
               <div class="row g-3">
                 <div class="col-md-6" *ngFor="let cred of data?.instructor?.credentials; let i = index">
-                  <div class="d-flex align-items-center gap-3 credential-item" 
+                  <div class="d-flex align-items-center gap-3 credential-item"
                        appScrollReveal [style.transitionDelay]="(i * 100) + 200 + 'ms'">
                     <ng-icon name="bootstrapCheckCircleFill" class="text-primary"></ng-icon>
                     <span>{{cred}}</span>
@@ -46,15 +46,15 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal';
   styles: [`
     .py-100 { padding: 100px 0; }
     .bg-darker { background-color: var(--bg-darker); }
-    
+
     .instructor-wrapper {
       border: 1px solid var(--glass-border);
     }
-    
+
     .image-stack {
       position: relative;
       display: inline-block;
-      
+
       .image-bg {
         position: absolute;
         top: 20px;
@@ -65,7 +65,7 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal';
         z-index: 0;
         opacity: 0.3;
       }
-      
+
       .instructor-img {
         position: relative;
         z-index: 1;
@@ -76,13 +76,13 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal';
         border: 4px solid var(--glass-border);
       }
     }
-    
+
     .instructor-bio {
       font-size: 1.1rem;
       line-height: 1.8;
       color: var(--text-muted);
     }
-    
+
     .credential-item {
       background: hsla(230, 25%, 15%, 0.5);
       padding: 12px 20px;

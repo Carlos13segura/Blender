@@ -61,6 +61,7 @@ import { bootstrapEyeFill, bootstrapBrush, bootstrapCameraReels } from '@ng-icon
     .project-img-container {
       position: relative;
       height: 250px;
+      @media (max-width: 576px) { height: 200px; }
       overflow: hidden;
       border-radius: 24px 24px 0 0;
     }

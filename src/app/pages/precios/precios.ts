@@ -70,7 +70,12 @@ import { RouterLink } from '@angular/router';
 
     .plan-price {
       .symbol { font-size: 1.5rem; vertical-align: top; color: var(--primary); font-weight: 700; }
-      .value { font-size: 3.5rem; font-weight: 800; font-family: var(--font-display); }
+      .value { 
+        font-size: 3.5rem; 
+        @media (max-width: 576px) { font-size: 2.8rem; }
+        font-weight: 800; 
+        font-family: var(--font-display); 
+      }
       .period { color: var(--text-muted); font-size: 1rem; }
     }
 
