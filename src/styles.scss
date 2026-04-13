@@ -1,0 +1,95 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Dynamic Palette */
+  --bg-dark: hsl(230, 25%, 7%);
+  --bg-darker: hsl(230, 25%, 5%);
+  --text-main: hsl(0, 0%, 95%);
+  --text-muted: hsl(230, 10%, 65%);
+  
+  --primary: hsl(260, 100%, 65%);
+  --primary-glow: hsla(260, 100%, 65%, 0.3);
+  --secondary: hsl(190, 100%, 50%);
+  --accent: hsl(320, 100%, 60%);
+  
+  --glass: hsla(230, 25%, 12%, 0.6);
+  --glass-border: hsla(230, 25%, 25%, 0.4);
+  
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, .display-font {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism Utility */
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  transition: var(--transition-smooth);
+  
+  &:hover {
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px -15px var(--primary-glow);
+    transform: translateY(-8px);
+  }
+}
+
+/* Gradients */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-main {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 10px;
+  &:hover {
+    background: var(--primary);
+  }
+}
+
+/* Animations Skeleton */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--transition-smooth);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
