@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg fixed-top" [class.scrolled]="isScrolled">
+  <div class="container" #navContainer>
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <ng-icon name="bootstrapHexagonFill" class="brand-icon"></ng-icon>
+      <span class="brand-text">DIGITAL<span>BLERD</span></span>
+    </a>
+    
+    <button class="navbar-toggler" type="button" (click)="toggleMobileMenu()">
+      <ng-icon [name]="isMenuOpen ? 'lucideX' : 'lucideMenu'"></ng-icon>
+    </button>
+    
+    <div class="desktop-nav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3" #navList>
+        <li class="nav-item">
+          <a #navLink class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><ng-icon name="matHome"></ng-icon> Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a #navLink class="nav-link" routerLink="/caracteristicas" routerLinkActive="active"><ng-icon name="matList"></ng-icon> Características</a>
+        </li>
+        <li class="nav-item">
+          <a #navLink class="nav-link" routerLink="/instalacion" routerLinkActive="active"><ng-icon name="matBuild"></ng-icon> Instalación</a>
+        </li>
+        <li class="nav-item">
+          <a #navLink class="nav-link" routerLink="/recursos" routerLinkActive="active"><ng-icon name="matBook"></ng-icon> Recursos</a>
+        </li>
+        <li class="nav-item">
+          <a #navLink class="nav-link" routerLink="/tutoriales" routerLinkActive="active"><ng-icon name="matSchool"></ng-icon> Tutoriales</a>
+        </li>
+        <li class="nav-item">
+          <a #navLink class="nav-link" routerLink="/proyectos" routerLinkActive="active"><ng-icon name="matFolder"></ng-icon> Proyectos</a>
+        </li>
+        <li class="nav-item">
+          <a #navLink class="nav-link" routerLink="/precios" routerLinkActive="active"><ng-icon name="matLabel"></ng-icon> Precios</a>
+        </li>
+        <li class="nav-item">
+          <a #navLink class="nav-link" routerLink="/blog" routerLinkActive="active"><ng-icon name="matArticle"></ng-icon> Blog</a>
+        </li>
+        <li class="nav-item">
+          <a #navLink class="nav-link" routerLink="/novedades" routerLinkActive="active"><ng-icon name="matFlashOn"></ng-icon> Novedades</a>
+        </li>
+        <li class="nav-item">
+          <a #navLink class="nav-link text-warning" routerLink="/admin" routerLinkActive="active"><ng-icon name="matSecurity"></ng-icon> Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-premium" routerLink="/inscripcion"><ng-icon name="matStar" class="me-2"></ng-icon>Inscríbete</a>
+        </li>
+      </ul>
+    </div>
+    <div #mobileMenu class="mobile-menu" [class.open]="isMenuOpen" (click)="closeMenu($event)">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
+        <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/caracteristicas" routerLinkActive="active">Características</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/instalacion" routerLinkActive="active">Instalación</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/recursos" routerLinkActive="active">Recursos</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/tutoriales" routerLinkActive="active">Tutoriales</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/proyectos" routerLinkActive="active">Proyectos</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/precios" routerLinkActive="active">Precios</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/novedades" routerLinkActive="active">Novedades</a></li>
+        <li class="nav-item"><a class="nav-link text-warning" routerLink="/admin" routerLinkActive="active">Admin</a></li>
+        <li class="nav-item"><a class="btn btn-premium" routerLink="/inscripcion">Inscríbete</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

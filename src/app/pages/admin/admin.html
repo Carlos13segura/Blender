@@ -1,0 +1,76 @@
+<section class="admin-panel py-100 position-relative">
+  <div class="container">
+    <div class="text-center mb-5 mt-5">
+      <h2 class="display-4 mb-3">Panel de <span class="text-gradient">Administración</span></h2>
+      <p class="text-muted lead mx-auto" style="max-width: 600px;">
+        Sube y visualiza los tutoriales del curso.
+      </p>
+    </div>
+
+    <div class="row g-5">
+      <!-- Formulario para Subir Tutorial -->
+      <div class="col-lg-4">
+        <div class="glass-card p-4">
+          <h4 class="mb-4 d-flex align-items-center gap-2">
+            <ng-icon name="bootstrapPlus" class="text-primary"></ng-icon> Nuevo Tutorial
+          </h4>
+          <form (submit)="onSubmit($event)">
+            <div class="mb-3">
+              <label class="form-label">Título</label>
+              <input type="text" class="form-control premium-input" [(ngModel)]="newTutorial.title" name="title" required placeholder="Ej. Iluminación HDRI">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Descripción</label>
+              <textarea class="form-control premium-input" [(ngModel)]="newTutorial.description" name="description" rows="3" required placeholder="Breve descripción del tutorial..."></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">URL del Video (YouTube/Vimeo)</label>
+              <input type="url" class="form-control premium-input" [(ngModel)]="newTutorial.url" name="url" required placeholder="https://youtube.com/...">
+            </div>
+            <div class="mb-4">
+              <label class="form-label">Duración</label>
+              <input type="text" class="form-control premium-input" [(ngModel)]="newTutorial.duration" name="duration" required placeholder="Ej. 15 min">
+            </div>
+            
+            <button type="submit" class="btn btn-primary-glow w-100 py-3" [disabled]="isSubmitting">
+              {{ isSubmitting ? 'Subiendo...' : 'Publicar Tutorial' }}
+            </button>
+            
+            <div *ngIf="successMessage" class="alert alert-success mt-3 bg-dark border-success text-success">
+              {{ successMessage }}
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Previsualización de Tutoriales -->
+      <div class="col-lg-8">
+        <div class="glass-card p-4 h-100">
+          <h4 class="mb-4">Tutoriales Publicados</h4>
+          
+          <div class="row g-4">
+            <div class="col-md-6" *ngFor="let tut of tutorials">
+              <div class="tutorial-card p-4">
+                <div class="play-icon-wrapper mb-3">
+                  <ng-icon name="bootstrapPlayCircle"></ng-icon>
+                </div>
+                <h5 class="fw-bold">{{tut.title}}</h5>
+                <p class="text-muted small mb-3">{{tut.description}}</p>
+                <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top border-secondary">
+                  <span class="badge duration-badge">
+                    <ng-icon name="bootstrapClock" class="me-1"></ng-icon> {{tut.duration}}
+                  </span>
+                  <a [href]="tut.url" target="_blank" class="btn btn-sm btn-outline-premium">Ver</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-12 text-center text-muted py-5" *ngIf="tutorials.length === 0">
+              No hay tutoriales publicados aún.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

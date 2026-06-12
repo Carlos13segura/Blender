@@ -1,0 +1,63 @@
+.tutoriales-page {
+  min-height: 100vh;
+  padding-top: 140px;
+  background: radial-gradient(circle at 50% 0%, hsla(230, 25%, 15%, 1) 0%, hsla(230, 25%, 5%, 1) 100%);
+  
+  @media (max-width: 991px) {
+    padding-top: 100px;
+  }
+}
+
+.tutorial-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  border: 1px solid var(--glass-border);
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 40px -10px var(--primary-glow);
+
+    .play-icon-wrapper {
+      color: var(--primary);
+      transform: scale(1.1);
+    }
+  }
+}
+
+.play-icon-wrapper {
+  font-size: 3rem;
+  color: var(--text-muted);
+  transition: var(--transition-smooth);
+  margin-bottom: 1rem;
+}
+
+.duration-badge {
+  background: hsla(190, 100%, 50%, 0.1);
+  color: var(--secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-outline-premium {
+  background: rgba(255,255,255,0.05);
+  color: white !important;
+  border: 1px solid var(--glass-border);
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+
+  &:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white !important;
+  }
+}

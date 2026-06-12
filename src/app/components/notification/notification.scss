@@ -1,0 +1,27 @@
+.toast-container {
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+}
+
+.glass-toast {
+  background: hsla(230, 25%, 15%, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--primary-glow);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: slideInRight 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+  margin-top: 10px;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

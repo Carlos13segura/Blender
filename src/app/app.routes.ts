@@ -10,6 +10,8 @@ export const routes: Routes = [
   { path: 'caracteristicas', loadComponent: () => import('./pages/caracteristicas/caracteristicas').then(m => m.CaracteristicasComponent) },
   { path: 'instalacion', loadComponent: () => import('./pages/instalacion/instalacion').then(m => m.InstalacionComponent) },
   { path: 'recursos', loadComponent: () => import('./pages/recursos/recursos').then(m => m.RecursosComponent) },
+  { path: 'tutoriales', loadComponent: () => import('./pages/tutoriales/tutoriales').then(m => m.TutorialesComponent) },
   { path: 'novedades', loadComponent: () => import('./pages/novedades/novedades').then(m => m.NovedadesComponent) },
+  { path: 'admin', loadComponent: () => import('./pages/admin/admin').then(m => m.AdminComponent) },
   { path: '**', redirectTo: '' }
 ];

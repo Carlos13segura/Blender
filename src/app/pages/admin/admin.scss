@@ -1,0 +1,83 @@
+.py-100 { 
+  padding: 100px 0; 
+  @media (max-width: 768px) { padding: 60px 0; }
+}
+
+.admin-panel {
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, hsla(260, 25%, 10%, 1) 0%, hsla(230, 25%, 5%, 1) 100%);
+}
+
+.premium-input {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: white;
+  border-radius: 12px;
+  padding: 12px 18px;
+  
+  &:focus {
+    background: var(--bg-dark);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+    color: white;
+  }
+  
+  &::placeholder { color: hsla(0, 0%, 100%, 0.3); }
+}
+
+.form-label { 
+  font-weight: 600; 
+  color: var(--text-main); 
+  margin-bottom: 8px; 
+}
+
+.tutorial-card {
+  background: hsla(230, 25%, 10%, 0.5);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  
+  &:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px -10px var(--primary-glow);
+    
+    .play-icon-wrapper {
+      color: var(--primary);
+      transform: scale(1.1);
+    }
+  }
+}
+
+.play-icon-wrapper {
+  font-size: 2.5rem;
+  color: var(--text-muted);
+  transition: var(--transition-smooth);
+}
+
+.duration-badge {
+  background: hsla(190, 100%, 50%, 0.1);
+  color: var(--secondary);
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-outline-premium {
+  background: rgba(255,255,255,0.05);
+  color: white !important;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+
+  &:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+}

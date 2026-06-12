@@ -1,0 +1,47 @@
+<section id="hero" class="hero-container d-flex align-items-center">
+  <div class="glow-sphere pulse"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center">
+      <div class="col-lg-7" #heroContent>
+        <span class="badge premium-badge mb-3">CONVIÉRTETE EN UN ARTISTA 3D</span>
+        <h1 class="hero-title mb-4">
+          Domina <span class="text-gradient">Blender</span> <br>
+          de Cero a <span class="text-gradient">Pro</span>
+        </h1>
+        <p class="hero-lead mb-5">
+          Únete al máster más completo de habla hispana. 5 meses de inmersión total
+          para transformar tu creatividad en una carrera profesional de alto nivel.
+        </p>
+        <div class="d-flex gap-4 flex-wrap stats-row-buttons">
+          <a routerLink="/inscripcion" class="btn btn-primary-glow btn-lg">Empezar Máster</a>
+          <a href="#modules" class="btn btn-outline-premium btn-lg">Ver Plan de Estudios</a>
+        </div>
+
+        <div class="mt-5 d-flex gap-5 stats-row">
+          <div class="stat-item">
+            <div class="stat-value">+{{data?.metrics?.students || 120}}</div>
+            <div class="stat-label">Proyectos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">{{data?.metrics?.rating || 4.9}}</div>
+            <div class="stat-label">Valoración</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">+{{data?.metrics?.hours || 120}}h</div>
+            <div class="stat-label">Contenido</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 mt-5 mt-lg-0" #heroVisual>
+        <div class="visual-wrapper glass-card">
+          <div class="render-preview">
+            <!-- Mostramos una imagen real de los assets si existe -->
+            <img src="mazinkaiser_3d_model_c4d_max_obj_fbx_ma_lwo_3ds_3dm_stl_3146962.jpg" class="render-img" alt="3D Model">
+          </div>
+          <div class="floating-label">Blender 5.0 Ready</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

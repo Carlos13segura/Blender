@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { SupabaseService } from './supabase';
-import { from, Observable, map, of, catchError } from 'rxjs';
+import { from, Observable, map, of, catchError, Subject } from 'rxjs';
 
 export interface Module {
   id: number;
@@ -21,6 +21,15 @@ export interface Metrics {
   rating: number;
   hours: number;
   projects: number;
+}
+
+export interface Tutorial {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  duration: string;
+  createdAt: Date;
 }
 
 export interface CourseData {
@@ -84,5 +93,36 @@ export class CourseService {
       map(() => ({ message: "Mensaje recibido correctamente. Te contactaremos pronto." })),
       catchError(() => of({ message: "Simulación de envío: ¡Datos recibidos!" }))
     );
+  }
+
+  private localTutorials: Tutorial[] = [
+    {
+      id: 't1',
+      title: 'Introducción al Modelado Hard Surface',
+      description: 'Aprende los conceptos básicos para modelar superficies duras en Blender 4.0.',
+      url: 'https://youtube.com/...',
+      duration: '15 min',
+      createdAt: new Date()
+    }
+  ];
+
+  // Subject to broadcast newly created tutorials
+  public tutorialAdded$ = new Subject<Tutorial>();
+
+  getTutorials(): Observable<Tutorial[]> {
+    // Aquí en un futuro puedes conectar con Supabase this.supabase...
+    return of(this.localTutorials);
+  }
+
+  addTutorial(tutorial: Omit<Tutorial, 'id' | 'createdAt'>): Observable<Tutorial> {
+    const newTutorial: Tutorial = {
+      ...tutorial,
+      id: Math.random().toString(36).substr(2, 9),
+      createdAt: new Date()
+    };
+    this.localTutorials = [newTutorial, ...this.localTutorials];
+    // Emit the event to notify listeners
+    this.tutorialAdded$.next(newTutorial);
+    return of(newTutorial);
   }
 }

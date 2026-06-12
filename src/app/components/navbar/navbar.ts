@@ -1,187 +1,74 @@
-import { Component, HostListener, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ViewChildren, ElementRef, QueryList, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { bootstrapHexagonFill } from '@ng-icons/bootstrap-icons';
 import { lucideMenu, lucideX } from '@ng-icons/lucide';
+import { matHome, matList, matBuild, matBook, matSchool, matFolder, matLabel, matArticle, matFlashOn, matSecurity, matStar } from '@ng-icons/material-icons/baseline';
 import gsap from 'gsap';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [CommonModule, NgIconComponent, RouterLink, RouterLinkActive],
-  providers: [provideIcons({ bootstrapHexagonFill, lucideMenu, lucideX })],
-  template: `
-    <nav class="navbar navbar-expand-lg fixed-top" [class.scrolled]="isScrolled">
-      <div class="container" #navContainer>
-        <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
-          <ng-icon name="bootstrapHexagonFill" class="brand-icon"></ng-icon>
-          <span class="brand-text">DIGITAL<span>BLERD</span></span>
-        </a>
-        
-        <button class="navbar-toggler" type="button" (click)="isMenuOpen = !isMenuOpen">
-          <ng-icon [name]="isMenuOpen ? 'lucideX' : 'lucideMenu'"></ng-icon>
-        </button>
-        
-        <div class="collapse navbar-collapse" [class.show]="isMenuOpen">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3" #navList>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/caracteristicas" routerLinkActive="active">Características</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/instalacion" routerLinkActive="active">Instalación</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/recursos" routerLinkActive="active">Recursos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/proyectos" routerLinkActive="active">Proyectos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/precios" routerLinkActive="active">Precios</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/novedades" routerLinkActive="active">Novedades</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-premium" routerLink="/inscripcion">Inscríbete</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  `,
-  styles: [`
-    .navbar {
-      padding: 1.5rem 0;
-      transition: var(--transition-smooth);
-      background: transparent;
-      z-index: 1000;
-      
-      &.scrolled {
-        padding: 0.8rem 0;
-        background: hsla(230, 25%, 7%, 0.85);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--glass-border);
-      }
-    }
-
-    .brand-text {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: var(--text-main);
-      span { color: var(--primary); }
-    }
-
-    .brand-icon {
-      font-size: 1.8rem;
-      color: var(--primary);
-      filter: drop-shadow(0 0 10px var(--primary-glow));
-    }
-
-    .nav-link {
-      color: var(--text-muted);
-      font-weight: 500;
-      font-family: var(--font-display);
-      transition: var(--transition-smooth);
-      position: relative;
-      
-      &:hover, &.active {
-        color: var(--primary);
-      }
-      
-      &.active::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: var(--bg-gradient-main);
-        border-radius: 2px;
-      }
-    }
-
-    .btn-premium {
-      background: var(--bg-gradient-main);
-      color: white;
-      border: none;
-      padding: 0.6rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 700;
-      box-shadow: 0 10px 20px -5px var(--primary-glow);
-      transition: var(--transition-smooth);
-      
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 15px 30px -5px var(--primary-glow);
-        color: white;
-      }
-    }
-
-    .navbar-toggler {
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-    }
-
-    @media (max-width: 991px) {
-      .navbar { padding: 1rem 0; }
-      .navbar-collapse {
-        background: hsla(230, 25%, 7%, 0.98);
-        backdrop-filter: blur(20px);
-        padding: 2rem;
-        border-radius: 24px;
-        margin-top: 1rem;
-        border: 1px solid var(--glass-border);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      }
-      .nav-item { width: 100%; text-align: center; }
-      .btn-premium { width: 100%; margin-top: 0.5rem; }
-    }
-    
-    @media (max-width: 576px) {
-      .brand-text { font-size: 1.1rem; }
-      .brand-icon { font-size: 1.5rem; }
-    }
-  `]
+  providers: [provideIcons({ bootstrapHexagonFill, lucideMenu, lucideX, matHome, matList, matBuild, matBook, matSchool, matFolder, matLabel, matArticle, matFlashOn, matSecurity, matStar })],
+  templateUrl: './navbar.html',
+  styleUrls: ['./navbar.scss']
 })
-export class NavbarComponent implements AfterViewInit {
+export class NavbarComponent implements OnInit, AfterViewInit {
   @ViewChild('navContainer') container!: ElementRef;
-  @ViewChild('navList') list!: ElementRef;
-  
+  @ViewChild('navList') navList!: ElementRef;
+  @ViewChild('mobileMenu') mobileMenu!: ElementRef;
+  @ViewChildren('navLink') navLinks!: QueryList<ElementRef>;
   isScrolled = false;
   isMenuOpen = false;
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isScrolled = window.scrollY > 50;
+  constructor() { }
+
+  ngOnInit(): void { }
+
+  toggleMobileMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    const menuEl = this.mobileMenu?.nativeElement;
+    if (this.isMenuOpen) {
+      gsap.to(menuEl, { opacity: 1, duration: 0.3, pointerEvents: 'auto' });
+    } else {
+      gsap.to(menuEl, { opacity: 0, duration: 0.3, pointerEvents: 'none' });
+    }
   }
 
-  ngAfterViewInit() {
+  closeMenu(event: Event) {
+    if ((event.target as HTMLElement).classList.contains('mobile-menu')) {
+      this.isMenuOpen = false;
+      const menuEl = this.mobileMenu?.nativeElement;
+      gsap.to(menuEl, { opacity: 0, duration: 0.3, pointerEvents: 'none' });
+    }
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.isScrolled = offset > 50;
+  }
+
+  ngAfterViewInit(): void {
+    // Animate navbar container
     gsap.from(this.container.nativeElement, {
       y: -50,
       opacity: 0,
-      duration: 1,
-      ease: 'power4.out'
+      duration: 0.8,
+      ease: 'power3.out'
     });
     
-    if (this.list?.nativeElement?.children) {
-      gsap.from(this.list.nativeElement.children, {
-        x: 30,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power3.out',
-        delay: 0.5
-      });
-    }
+    // Stagger animate desktop navigation links
+    const links = this.navLinks.toArray().map(l => l.nativeElement);
+    gsap.from(links, {
+      y: 20,
+      opacity: 0,
+      stagger: 0.07,
+      delay: 0.3,
+      duration: 0.5,
+      ease: 'power2.out'
+    });
   }
 }
