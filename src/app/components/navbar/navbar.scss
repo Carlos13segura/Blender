@@ -1,0 +1,186 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1150;
+  background: hsla(230, 25%, 7%, 0.85); /* glassmorphism */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: var(--transition-smooth);
+  height: 70px;
+}
+
+/* Prevent content being hidden behind navbar */
+body {
+  padding-top: 70px;
+}
+
+.navbar > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  flex-wrap: nowrap;
+}
+
+/* Scrolled state */
+.navbar.scrolled {
+  padding: 0.8rem 0;
+  background: hsla(230, 25%, 7%, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Brand */
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text-main);
+}
+.brand-text span { color: var(--primary); }
+
+/* Desktop navigation container */
+.desktop-nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.desktop-nav .navbar-nav {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap; /* keep items on one line */
+  gap: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+/* Snap each nav item */
+.desktop-nav .navbar-nav li {
+  scroll-snap-align: start;
+}
+
+/* Custom scrollbar for WebKit */
+.desktop-nav .navbar-nav::-webkit-scrollbar {
+  height: 6px;
+}
+.desktop-nav .navbar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+.desktop-nav .navbar-nav::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+
+/* Ensure premium button aligns with icons */
+.btn-premium {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Add icon to premium button if not present */
+.btn-premium::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22%23fff%22 viewBox=%220 0 24 24%22%3E%3Cpath d=%22M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v4z%22/%3E%3C/svg%3E') center/contain no-repeat;
+}
+
+
+.desktop-nav .nav-link {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem; /* more spacing */
+  transition: var(--transition-smooth), transform var(--transition-smooth);
+}
+
+/* Icon spacing */
+.desktop-nav .nav-link ng-icon {
+  margin-right: 0.3rem;
+  font-size: 1.1em;
+  transition: color var(--transition-smooth);
+}
+
+
+.desktop-nav .nav-link:hover {
+  color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Mobile toggle button - hide on desktop */
+@media (min-width: 992px) {
+  .navbar-toggler { display: none; }
+}
+
+/* Mobile view */
+@media (max-width: 991px) {
+  .desktop-nav { display: none; }
+  .navbar > .container { padding: 1rem 0; }
+}
+
+/* Mobile overlay menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1200;
+}
+.mobile-menu.open { opacity: 1; pointer-events: auto; }
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.mobile-menu .nav-link {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.mobile-menu .nav-link:hover { color: var(--primary); }
+
+/* Premium button */
+.btn-premium {
+  background: var(--bg-gradient-main);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 10px 20px -5px var(--primary-glow);
+  transition: var(--transition-smooth);
+}
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px var(--primary-glow);
+}
