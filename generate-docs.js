@@ -9,586 +9,570 @@ const {
   HeadingLevel,
   AlignmentType,
   PageBreak,
-  ExternalHyperlink,
 } = require('docx');
 
 const SCREENSHOTS_DIR = path.join(__dirname, 'docs-screenshots');
-const OUTPUT = path.join(__dirname, 'DOCUMENTACION.docx');
 
-function imageBuffer(name) {
-  return fs.readFileSync(path.join(SCREENSHOTS_DIR, `${name}.png`));
+function pngSize(filePath) {
+  const buf = fs.readFileSync(filePath);
+  const w = buf.readUInt32BE(16);
+  const h = buf.readUInt32BE(20);
+  return { w, h };
 }
 
-function imgParagraph(name, width = 620, height = 350) {
+function img(name, maxW = 600) {
+  const p = path.join(SCREENSHOTS_DIR, `${name}.png`);
+  if (!fs.existsSync(p)) return null;
+  const { w, h } = pngSize(p);
+  const scale = Math.min(1, maxW / w);
   return new Paragraph({
     alignment: AlignmentType.CENTER,
-    spacing: { before: 200, after: 400 },
+    spacing: { before: 120, after: 250 },
     children: [
       new ImageRun({
-        data: imageBuffer(name),
-        transformation: { width, height },
+        data: fs.readFileSync(p),
+        transformation: { width: Math.round(w * scale), height: Math.round(h * scale) },
         type: 'png',
       }),
     ],
   });
 }
 
-function heading(text, level = HeadingLevel.HEADING_1) {
+function imgs(...list) {
+  const result = [];
+  for (const item of list) {
+    if (typeof item === 'string') {
+      const p = img(item);
+      if (p) result.push(p);
+    } else if (Array.isArray(item)) {
+      const p = img(item[0], item[1] || 600);
+      if (p) result.push(p);
+    }
+  }
+  return result;
+}
+
+function h1(t) {
   return new Paragraph({
-    text,
-    heading: level,
+    text: t,
+    heading: HeadingLevel.HEADING_1,
     spacing: { before: 300, after: 200 },
   });
 }
-
-function subheading(text) {
+function h2(t) {
   return new Paragraph({
-    text,
+    text: t,
     heading: HeadingLevel.HEADING_2,
     spacing: { before: 250, after: 150 },
   });
 }
-
-function subsubheading(text) {
+function h3(t) {
   return new Paragraph({
-    text,
+    text: t,
     heading: HeadingLevel.HEADING_3,
     spacing: { before: 200, after: 100 },
   });
 }
-
-function body(text) {
-  return new Paragraph({
-    spacing: { after: 100 },
-    children: [new TextRun({ text, size: 22 })],
-  });
+function body(t) {
+  return new Paragraph({ spacing: { after: 60 }, children: [new TextRun({ text: t, size: 21 })] });
 }
-
-function boldBody(text) {
-  return new Paragraph({
-    spacing: { after: 100 },
-    children: [new TextRun({ text, bold: true, size: 22 })],
-  });
-}
-
-function bullet(text) {
+function bold(t) {
   return new Paragraph({
     spacing: { after: 60 },
-    bullet: { level: 0 },
-    children: [new TextRun({ text, size: 22 })],
+    children: [new TextRun({ text: t, bold: true, size: 22 })],
   });
 }
-
-function spacer() {
-  return new Paragraph({ spacing: { after: 100 }, children: [] });
+function bullet(t) {
+  return new Paragraph({
+    spacing: { after: 40 },
+    bullet: { level: 0 },
+    children: [new TextRun({ text: t, size: 21 })],
+  });
+}
+function pb() {
+  return new Paragraph({ children: [new PageBreak()] });
 }
 
-const sections = [
-  // ===================== PORTADA =====================
-  {
-    properties: {
-      page: {
-        margin: { top: 1500, bottom: 1500, left: 1500, right: 1500 },
-      },
-    },
+const children = [
+  // ===== PORTADA =====
+  new Paragraph({ spacing: { before: 4000 }, children: [] }),
+  new Paragraph({
+    alignment: AlignmentType.CENTER,
+    spacing: { after: 200 },
+    children: [new TextRun({ text: 'DIGITALBLERD', size: 56, bold: true, color: '7C3AED' })],
+  }),
+  new Paragraph({
+    alignment: AlignmentType.CENTER,
+    spacing: { after: 200 },
+    children: [new TextRun({ text: 'App-Blender', size: 46, bold: true, color: 'FFFFFF' })],
+  }),
+  new Paragraph({
+    alignment: AlignmentType.CENTER,
+    spacing: { after: 600 },
     children: [
-      new Paragraph({ spacing: { before: 4000 }, children: [] }),
-      new Paragraph({
-        alignment: AlignmentType.CENTER,
-        spacing: { after: 200 },
-        children: [new TextRun({ text: 'DIGITALBLERD', size: 56, bold: true, color: '7C3AED' })],
-      }),
-      new Paragraph({
-        alignment: AlignmentType.CENTER,
-        spacing: { after: 200 },
-        children: [new TextRun({ text: 'App-Blender', size: 46, bold: true, color: 'FFFFFF' })],
-      }),
-      new Paragraph({
-        alignment: AlignmentType.CENTER,
-        spacing: { after: 600 },
-        children: [
-          new TextRun({ text: 'Documentación Técnica del Proyecto', size: 32, color: 'AAAAAA' }),
-        ],
-      }),
-      new Paragraph({
-        alignment: AlignmentType.CENTER,
-        spacing: { after: 100 },
-        children: [
-          new TextRun({
-            text: 'Angular 21 · TypeScript 5.9 · Bootstrap 5.3 · GSAP 3.14 · Supabase',
-            size: 22,
-            color: '888888',
-          }),
-        ],
-      }),
-      new Paragraph({
-        alignment: AlignmentType.CENTER,
-        spacing: { after: 100 },
-        children: [new TextRun({ text: 'Junio 2026', size: 22, color: '888888' })],
-      }),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== INDICE =====================
-      heading('Índice'),
-      body('1. Arquitectura General'),
-      body('2. Punto de Entrada - main.ts'),
-      body('3. Configuración Global - app.config.ts'),
-      body('4. Sistema de Rutas - app.routes.ts'),
-      body('5. Componente Raíz - app.ts'),
-      body('6. Estilos Globales - styles.scss'),
-      body('7. Servicios (SupabaseService, CourseService)'),
-      body('8. Directiva ScrollReveal'),
-      body(
-        '9. Componentes Compartidos (Navbar, Hero, CourseDetails, Instructor, Contact, Footer, Notification)',
-      ),
-      body(
-        '10. Páginas (Home, Blog, Proyectos, Precios, Inscripcion, Caracteristicas, Instalacion, Recursos, Tutoriales, Novedades, Admin)',
-      ),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== 1. ARQUITECTURA =====================
-      heading('1. Arquitectura General'),
-      body(
-        'App-Blender es una aplicación web SPA desarrollada con Angular 21 utilizando componentes standalone (sin NgModules). Sigue una arquitectura de una sola página con enrutamiento lazy para optimizar la carga inicial.',
-      ),
-      boldBody('Estructura de directorios:'),
-      body('src/'),
-      body('  ├── main.ts              ← Bootstrap de la aplicación'),
-      body('  ├── index.html           ← HTML raíz con SEO y Schema.org'),
-      body('  ├── styles.scss          ← Estilos globales (tema oscuro, glassmorphism)'),
-      body('  └── app/'),
-      body('      ├── app.ts           ← Componente raíz'),
-      body('      ├── app.config.ts    ← Providers globales'),
-      body('      ├── app.routes.ts    ← Definición de rutas'),
-      body('      ├── directives/      ← Directiva ScrollReveal'),
-      body('      ├── services/        ← SupabaseService + CourseService'),
-      body('      ├── components/      ← Componentes reutilizables'),
-      body('      └── pages/           ← 11 páginas (1 eager + 10 lazy)'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== 2. MAIN.TS =====================
-      heading('2. Punto de Entrada - main.ts'),
-      body('Archivo: src/main.ts'),
-      body(
-        'Este archivo arranca la aplicación utilizando la API bootstrapApplication de Angular, que permite iniciar una aplicación con componentes standalone sin necesidad de NgModules.',
-      ),
-      imgParagraph('main-ts', 620, 180),
-
-      boldBody('Explicación:'),
-      body('• import zone.js: Habilita la detección de cambios de Angular.'),
-      body(
-        '• bootstrapApplication: Función que inicializa la aplicación con el componente raíz y la configuración global.',
-      ),
-      body('• appConfig: Contiene los providers globales (router, http client, animations).'),
-      body('• catchError: Maneja errores de arranque mostrándolos en consola.'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== 3. APP.CONFIG.TS =====================
-      heading('3. Configuración Global - app.config.ts'),
-      body('Archivo: src/app/app.config.ts'),
-      body('Configura los providers que estarán disponibles en toda la aplicación.'),
-      imgParagraph('app-config', 620, 320),
-
-      boldBody('Providers:'),
-      body(
-        '• provideZoneChangeDetection({ eventCoalescing: true }): Optimiza la detección de cambios coalesciendo eventos.',
-      ),
-      body(
-        '• provideRouter(routes): Configura el enrutador con las rutas definidas en app.routes.ts.',
-      ),
-      body('• provideHttpClient(): Habilita el cliente HTTP para peticiones a APIs externas.'),
-      body('• provideAnimations(): Activa el sistema de animaciones basado en Angular Animations.'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== 4. APP.ROUTES.TS =====================
-      heading('4. Sistema de Rutas - app.routes.ts'),
-      body('Archivo: src/app/app.routes.ts'),
-      body(
-        'Define 11 rutas: la ruta raíz cargada eager y 10 rutas lazy-loaded para optimizar el bundle inicial.',
-      ),
-      imgParagraph('app-routes', 620, 500),
-
-      boldBody('Rutas:'),
-      bullet('/ → HomeComponent (eager)'),
-      bullet('/blog → BlogComponent (lazy)'),
-      bullet('/proyectos → ProyectosComponent (lazy)'),
-      bullet('/precios → PreciosComponent (lazy)'),
-      bullet('/inscripcion → InscripcionComponent (lazy)'),
-      bullet('/caracteristicas → CaracteristicasComponent (lazy)'),
-      bullet('/instalacion → InstalacionComponent (lazy)'),
-      bullet('/recursos → RecursosComponent (lazy)'),
-      bullet('/tutoriales → TutorialesComponent (lazy)'),
-      bullet('/novedades → NovedadesComponent (lazy)'),
-      bullet('/admin → AdminComponent (lazy)'),
-      bullet('** → Redirecciona a /'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== 5. APP.TS =====================
-      heading('5. Componente Raíz - app.ts'),
-      body('Archivo: src/app/app.ts'),
-      body(
-        'El componente raíz define la estructura principal de la aplicación. Combina el navbar, router outlet, footer y sistema de notificaciones.',
-      ),
-      imgParagraph('app-component', 620, 480),
-
-      boldBody('Estructura del template:'),
-      body('• app-navbar: Barra de navegación fija en la parte superior.'),
-      body('• router-outlet: Donde se renderizan las páginas según la ruta activa.'),
-      body('• app-footer: Pie de página con branding, enlaces y newsletter.'),
-      body('• app-notification: Sistema de notificaciones toast superpuesto.'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== 6. STYLES.SCSS =====================
-      heading('6. Estilos Globales - styles.scss'),
-      body('Archivo: src/styles.scss'),
-      body(
-        'Define el sistema de diseño con tema oscuro, paleta de colores personalizada, glassmorphism y animaciones.',
-      ),
-      imgParagraph('app-component', 0, 0), // placeholder to be replaced
-      boldBody('Variables CSS (Custom Properties):'),
-      bullet('--bg-dark / --bg-darker: Fondo oscuro en dos tonos.'),
-      bullet('--primary (púrpura) / --secondary (cyan) / --accent (rosa): Paleta principal.'),
-      bullet('--glass / --glass-border: Efecto glassmorphism.'),
-      bullet('--font-display: Syne para títulos / --font-body: Plus Jakarta Sans.'),
-      boldBody('Clases utilitarias:'),
-      bullet('.glass-card: Card con backdrop-filter blur y borde semitransparente.'),
-      bullet('.text-gradient: Gradiente lineal en texto (púrpura → cyan → rosa).'),
-      bullet('.reveal / .visible: Sistema de animaciones scroll con IntersectionObserver.'),
-      bullet('.bg-gradient-main: Gradiente púrpura → rosa.'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== 7. SERVICIOS =====================
-      heading('7. Servicios'),
-
-      // 7.1 SupabaseService
-      subheading('7.1 SupabaseService'),
-      body('Archivo: src/app/services/supabase.ts'),
-      body(
-        'Wrapper del cliente Supabase que gestiona la conexión con la base de datos PostgreSQL.',
-      ),
-      imgParagraph('supabase-service', 620, 800),
-
-      boldBody('Características:'),
-      body(
-        '• Validación de URL antes de inicializar el cliente para evitar errores en desarrollo.',
-      ),
-      body('• getCourseData(): Consulta la tabla "course" con joins a "instructor" y "modules".'),
-      body('• sendContact(): Inserta registros en la tabla "contacts".'),
-      body('• Getter "client" para acceso directo al cliente Supabase desde otros servicios.'),
-
-      // 7.2 CourseService
-      subheading('7.2 CourseService'),
-      body('Archivo: src/app/services/course.ts'),
-      body(
-        'Capa de negocio principal que abstrae la lógica de la aplicación y proporciona datos de respaldo (fallback) cuando Supabase no está configurado.',
-      ),
-      imgParagraph('course-service', 620, 1200),
-
-      boldBody('Interfaces exportadas:'),
-      bullet('Module: id, title, description, duration'),
-      bullet('Instructor: name, title, bio, credentials[]'),
-      bullet('Metrics: students, rating, hours, projects'),
-      bullet('Tutorial: id, title, description, url, duration, createdAt'),
-      bullet('CourseData: title, instructor, metrics, modules'),
-      boldBody('Métodos principales:'),
-      body('• getCourseData(): Intenta obtener datos de Supabase; si falla, devuelve datos mock.'),
-      body('• sendContact(): Envía formulario de contacto a Supabase con fallback a simulación.'),
-      body('• getTutorials(): Devuelve lista local de tutoriales.'),
-      body('• addTutorial(): Agrega tutorial localmente y emite evento via Subject RxJS.'),
-      boldBody('Patrón de notificaciones en tiempo real:'),
-      body(
-        'El Subject tutorialAdded$ permite que múltiples componentes (Admin, Tutoriales, Notification) se suscriban y reaccionen cuando se crea un nuevo tutorial.',
-      ),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== 8. SCROLL-REVEAL =====================
-      heading('8. Directiva ScrollReveal'),
-      body('Archivo: src/app/directives/scroll-reveal.ts'),
-      body(
-        'Directiva standalone que aplica animaciones de entrada cuando los elementos entran en el viewport al hacer scroll.',
-      ),
-      imgParagraph('scroll-reveal', 620, 400),
-
-      boldBody('Funcionamiento:'),
-      body('• Usa IntersectionObserver para detectar cuándo un elemento entra en el viewport.'),
-      body('• threshold: 0.1 → Se activa cuando al menos el 10% del elemento es visible.'),
-      body(
-        '• rootMargin: "0px 0px -50px 0px" → Se activa 50px antes de que el elemento llegue al viewport.',
-      ),
-      body('• Agrega clase "reveal" inicialmente (oculto con opacity: 0 y translateY(30px)).'),
-      body('• Cuando es visible, agrega clase "visible" (opacity: 1, translateY(0)).'),
-      body('• Se desconecta automáticamente después de la primera activación (unobserve).'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== 9. COMPONENTES =====================
-      heading('9. Componentes Compartidos'),
-
-      // 9.1 Navbar
-      subheading('9.1 NavbarComponent'),
-      body('Archivo: src/app/components/navbar/navbar.ts'),
-      body(
-        'Barra de navegación responsive con animaciones GSAP, detección de scroll y menú mobile.',
-      ),
-      imgParagraph('navbar', 620, 750),
-      boldBody('Características:'),
-      bullet('@ViewChildren para animar los links de navegación con GSAP stagger.'),
-      bullet('@HostListener("window:scroll") para detectar scroll y agregar clase "scrolled".'),
-      bullet('Menú mobile full-screen con overlay y GSAP fade toggle.'),
-      bullet('11 enlaces de navegación + botón CTA "Inscríbete" con efecto glow.'),
-      bullet('Underline animation en hover con pseudo-elemento ::after.'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 9.2 Hero
-      subheading('9.2 HeroComponent'),
-      body('Archivo: src/app/components/hero/hero.ts'),
-      body('Hero section de la landing page con animaciones GSAP, métricas dinámicas y visual 3D.'),
-      imgParagraph('hero', 620, 650),
-      boldBody('Características:'),
-      bullet('Carga datos desde CourseService (métricas: estudiantes, rating, horas).'),
-      bullet('GSAP stagger animation en los hijos del contenido (fade-in up con power4.out).'),
-      bullet('GSAP slide-in desde la derecha para el panel visual.'),
-      bullet('Esfera de glow decorativa con CSS radial-gradient.'),
-      bullet('Imagen 3D con transform: perspective(1000px) rotateY(-10deg).'),
-      bullet('Badge flotante "Blender 5.0 Ready" con gradiente.'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 9.3 CourseDetails
-      subheading('9.3 CourseDetailsComponent'),
-      body('Archivo: src/app/components/course-details/course-details.ts'),
-      body('Grid de 4 columnas que muestra los módulos del plan de estudios.'),
-      imgParagraph('course-details', 620, 450),
-      boldBody('Características:'),
-      bullet('Usa ScrollRevealDirective con transitionDelay progresivo (i * 100ms).'),
-      bullet('Cada módulo muestra: número (01-04), icono, título, descripción, duración.'),
-      bullet('Iconos cíclicos: Box → Layers → Box → Stars.'),
-      bullet('Card glassmorphism con hover effect (border-color primary + glow).'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 9.4 Instructor
-      subheading('9.4 InstructorComponent'),
-      body('Archivo: src/app/components/instructor/instructor.ts'),
-      body('Sección del instructor con foto, biografía y credenciales.'),
-      imgParagraph('instructor', 620, 400),
-      boldBody('Características:'),
-      bullet('Layout de dos columnas: imagen + información.'),
-      bullet('Avatar con efecto image-stack (background gradiente detrás).'),
-      bullet('Lista de credenciales con iconos checkmark y ScrollReveal.'),
-      bullet('Card glassmorphism con borde semitransparente.'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 9.5 Contact
-      subheading('9.5 ContactComponent'),
-      body('Archivo: src/app/components/contact/contact.ts'),
-      body('Formulario de contacto con validación, estados de carga y feedback visual.'),
-      imgParagraph('contact', 620, 500),
-      boldBody('Características:'),
-      bullet('Two-way binding con ngModel (FormsModule).'),
-      bullet('Campos: nombre, email, mensaje con validación HTML5 required.'),
-      bullet('Estados: isSubmitting (deshabilita botón) y successMessage (alerta por 5s).'),
-      bullet('Inputs con estilo premium (focus: border-primary + glow).'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 9.6 Footer
-      subheading('9.6 FooterComponent'),
-      body('Archivo: src/app/components/footer/footer.ts'),
-      body('Pie de página con 4 columnas: branding, explorar, soporte y newsletter.'),
-      imgParagraph('footer', 620, 350),
-      boldBody('Características:'),
-      bullet('Logo DIGITALBLERD con icono hexagon y efecto glow.'),
-      bullet('Redes sociales: Instagram, Twitter/X, YouTube, Discord con hover primary.'),
-      bullet('Enlaces con hover translateX(5px) + color primary.'),
-      bullet('Newsletter con input y botón de suscripción.'),
-      bullet('Copyright © 2026 DIGITALBLERD.'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 9.7 Notification
-      subheading('9.7 NotificationComponent'),
-      body('Archivo: src/app/components/notification/notification.ts'),
-      body('Sistema de notificaciones toast en tiempo real usando RxJS Subjects.'),
-      imgParagraph('notification', 620, 500),
-      boldBody('Características:'),
-      bullet('Se suscribe a CourseService.tutorialAdded$ (RxJS Subject).'),
-      bullet('Cada notificación se auto-destruye a los 6 segundos.'),
-      bullet('Animación slideInRight con CSS keyframes.'),
-      bullet('Estilo glassmorphism con borde púrpura (primary-glow).'),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== 10. PÁGINAS =====================
-      heading('10. Páginas (Rutas)'),
-
-      // 10.1 Home
-      subheading('10.1 HomeComponent (/)'),
-      body('Archivo: src/app/pages/home/home.ts'),
-      body(
-        'Página principal que compone 4 secciones: Hero → Plan de Estudios → Instructor → Contacto.',
-      ),
-      imgParagraph('home', 620, 300),
-
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 10.2 Blog
-      subheading('10.2 BlogComponent (/blog)'),
-      body('Archivo: src/app/pages/blog/blog.ts'),
-      body(
-        'Página de blog con 3 feature cards (rapidez, seguridad, personalización) y secciones de Misión/Visión.',
-      ),
-      body(
-        'Usa ScrollRevealDirective, ng-icons (LightningChargeFill, ShieldLockFill, PuzzleFill).',
-      ),
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 10.3 Proyectos
-      subheading('10.3 ProyectosComponent (/proyectos)'),
-      body('Archivo: src/app/pages/proyectos/proyectos.ts'),
-      body(
-        'Galería de 6 proyectos con imágenes Unsplash. Cada proyecto tiene categoría, overlay hover con botón "Ver Detalles".',
-      ),
-      body('Categorías: Exterior, Character Design, Environment, Hard Surface, Comercial, VFX.'),
-
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 10.4 Precios
-      subheading('10.4 PreciosComponent (/precios)'),
-      body('Archivo: src/app/pages/precios/precios.ts'),
-      body(
-        '3 planes de precios (Básico $1,000, Intermedio $2,000 - destacado, Avanzado $3,000). Template y estilos inline.',
-      ),
-      imgParagraph('precios', 620, 850),
-      boldBody('Características:'),
-      bullet('Plan "Intermedio" destacado con scale(1.05), border-color primary y glow.'),
-      bullet('Feature lists con iconos checkmark-circle.'),
-      bullet('Cada plan tiene botón que enlaza a /inscripcion.'),
-
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 10.5 Inscripcion
-      subheading('10.5 InscripcionComponent (/inscripcion)'),
-      body('Archivo: src/app/pages/inscripcion/inscripcion.ts'),
-      body(
-        'Página de inscripción con formulario completo y lista de ventajas. Template y estilos 100% inline.',
-      ),
-      imgParagraph('inscripcion', 620, 1200),
-      boldBody('Características:'),
-      bullet(
-        'Formulario con nombre, email, selector de país (México, España, Colombia, Argentina, Otro).',
-      ),
-      bullet(
-        'Selector de plan visual (Básico / Pro / Elite) con clase .active y background primary.',
-      ),
-      bullet('Lista de 3 ventajas: Certificación Oficial, Acceso de por vida, Bolsa de Trabajo.'),
-      bullet('ScrollRevealDirective en ambas columnas.'),
-
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 10.6 Caracteristicas
-      subheading('10.6 CaracteristicasComponent (/caracteristicas)'),
-      body('Archivo: src/app/pages/caracteristicas/caracteristicas.ts'),
-      body(
-        '6 tarjetas de características de Blender con imágenes Unsplash, iconos superpuestos y descripciones.',
-      ),
-
-      // 10.7 Instalacion
-      subheading('10.7 InstalacionComponent (/instalacion)'),
-      body('Archivo: src/app/pages/instalacion/instalacion.ts'),
-      body(
-        'Guía de instalación con tabs para Windows, macOS y Linux. Cada OS tiene 3 pasos numerados + requisitos.',
-      ),
-
-      // 10.8 Recursos
-      subheading('10.8 RecursosComponent (/recursos)'),
-      body('Archivo: src/app/pages/recursos/recursos.ts'),
-      body(
-        '4 tarjetas de recursos (Documentación, Cursos, Comunidad, Addons) + 3 assets destacados.',
-      ),
-
-      // 10.9 Tutoriales
-      subheading('10.9 TutorialesComponent (/tutoriales)'),
-      body('Archivo: src/app/pages/tutoriales/tutoriales.ts'),
-      body(
-        'Lista de tutoriales con suscripción en tiempo real a tutorialAdded$. Muestra cards con icono play, título, descripción, duración y botón "Ver Tutorial".',
-      ),
-      imgParagraph('tutoriales', 620, 500),
-
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 10.10 Novedades
-      subheading('10.10 NovedadesComponent (/novedades)'),
-      body('Archivo: src/app/pages/novedades/novedades.ts'),
-      body(
-        'Página de novedades de Blender 5.0 "Hi Five". Hero section con badge + CTA de descarga. 4 tarjetas de actualizaciones mayores + sección de rendimiento.',
-      ),
-
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // 10.11 Admin
-      subheading('10.11 AdminComponent (/admin)'),
-      body('Archivo: src/app/pages/admin/admin.ts'),
-      body(
-        'Panel de administración para gestionar tutoriales. Dos columnas: formulario de creación + grid de tutoriales publicados.',
-      ),
-      imgParagraph('admin', 620, 700),
-      boldBody('Características:'),
-      bullet('Formulario con campos: título, descripción, URL del video, duración.'),
-      bullet(
-        'Al crear un tutorial, se emite vía tutorialAdded$ y todas las suscripciones se actualizan.',
-      ),
-      bullet(
-        'Los tutoriales se muestran en cards con icono play, badge de duración y enlace para ver.',
-      ),
-
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== RESUMEN FINAL =====================
-      heading('Resumen Técnico'),
-      body(''),
-      boldBody('Stack Tecnológico:'),
-      bullet('Framework: Angular 21 (Standalone Components)'),
-      bullet('Lenguaje: TypeScript 5.9'),
-      bullet('Estilos: SCSS + Bootstrap 5.3 + Glassmorphism'),
-      bullet('Animaciones: GSAP 3.14 + IntersectionObserver'),
-      bullet('Backend: Supabase (PostgreSQL)'),
-      bullet('Estado: RxJS Subjects + Services'),
-      bullet('Testing: Vitest'),
-      bullet('Build: Angular CLI v21 (application builder)'),
-      body(''),
-      boldBody('Arquitectura:'),
-      bullet('11 rutas (1 eager + 10 lazy-loaded)'),
-      bullet('7 componentes compartidos + 1 directiva + 2 servicios'),
-      bullet('11 páginas standalone con lazy loading'),
-      body(''),
-      boldBody('Patrones implementados:'),
-      bullet('Standalone components (sin NgModules)'),
-      bullet('Lazy loading con loadComponent'),
-      bullet('Fallback data graceful degradation'),
-      bullet('Real-time notifications con RxJS Subjects'),
-      bullet('SEO optimization (Open Graph, JSON-LD, sitemap)'),
-
-      new Paragraph({ children: [new PageBreak()] }),
-
-      // ===================== FIN =====================
-      heading('Notas Finales'),
-      body('Documentación generada el 11 de Junio de 2026.'),
-      body('Proyecto: App-Blender / DIGITALBLERD - Máster en Blender 3D y Animación Profesional.'),
-      body(''),
-      body(
-        'Las capturas de código fueron generadas con carbon-now-cli, que utiliza el motor de renderizado de carbon.now.sh para producir imágenes estilizadas de código fuente.',
-      ),
+      new TextRun({ text: 'Documentación Técnica del Proyecto', size: 32, color: 'AAAAAA' }),
     ],
-  },
+  }),
+  new Paragraph({
+    alignment: AlignmentType.CENTER,
+    spacing: { after: 80 },
+    children: [
+      new TextRun({
+        text: 'Angular 21  ·  TypeScript 5.9  ·  Bootstrap 5.3  ·  GSAP 3.14  ·  Supabase',
+        size: 22,
+        color: '888888',
+      }),
+    ],
+  }),
+  new Paragraph({
+    alignment: AlignmentType.CENTER,
+    spacing: { after: 80 },
+    children: [new TextRun({ text: 'Junio 2026', size: 22, color: '888888' })],
+  }),
+  pb(),
+
+  // ===== INDICE =====
+  h1('Índice'),
+  body('1. Arquitectura General'),
+  body('2. Punto de Entrada - main.ts'),
+  body('3. Configuración Global - app.config.ts'),
+  body('4. Sistema de Rutas - app.routes.ts'),
+  body('5. Componente Raíz - app.ts'),
+  body('6. Estilos Globales - styles.scss'),
+  body('7. Servicios (SupabaseService, CourseService)'),
+  body('8. Directiva ScrollReveal'),
+  body(
+    '9. Componentes Compartidos (Navbar, Hero, CourseDetails, Instructor, Contact, Footer, Notification)',
+  ),
+  body(
+    '10. Páginas (Home, Blog, Proyectos, Precios, Inscripcion, Caracteristicas, Instalacion, Recursos, Tutoriales, Novedades, Admin)',
+  ),
+  pb(),
+
+  // ===== 1. ARQUITECTURA =====
+  h1('1. Arquitectura General'),
+  body(
+    'App-Blender es una aplicación web SPA desarrollada con Angular 21 utilizando componentes standalone. Sigue una arquitectura de una sola página con enrutamiento lazy para optimizar la carga inicial.',
+  ),
+  bold('Estructura de directorios:'),
+  body('src/'),
+  body('  ├── main.ts              ← Bootstrap de la aplicación'),
+  body('  ├── index.html           ← HTML raíz con SEO y Schema.org'),
+  body('  ├── styles.scss          ← Estilos globales (tema oscuro, glassmorphism)'),
+  body('  └── app/'),
+  body('      ├── app.ts           ← Componente raíz'),
+  body('      ├── app.config.ts    ← Providers globales'),
+  body('      ├── app.routes.ts    ← Definición de rutas'),
+  body('      ├── directives/      ← Directiva ScrollReveal'),
+  body('      ├── services/        ← SupabaseService + CourseService'),
+  body('      ├── components/      ← 7 componentes reutilizables'),
+  body('      └── pages/           ← 11 páginas (1 eager + 10 lazy)'),
+  bold('Stack Tecnológico:'),
+  bullet('Framework: Angular 21 (Standalone Components)'),
+  bullet('Lenguaje: TypeScript 5.9'),
+  bullet('Estilos: SCSS + Bootstrap 5.3 + Glassmorphism'),
+  bullet('Animaciones: GSAP 3.14 + IntersectionObserver'),
+  bullet('Backend: Supabase (PostgreSQL)'),
+  bullet('Estado: RxJS Subjects + Services'),
+  bullet('Testing: Vitest'),
+  bullet('Build: Angular CLI v21 (application builder)'),
+  pb(),
+
+  // ===== 2. MAIN.TS =====
+  h1('2. Punto de Entrada - main.ts'),
+  body('Archivo: src/main.ts'),
+  body(
+    'Arranca la aplicación utilizando bootstrapApplication de Angular, que permite iniciar con componentes standalone sin NgModules.',
+  ),
+  ...imgs('main-ts'),
+  bold('Explicación:'),
+  bullet('import zone.js: Habilita la detección de cambios de Angular.'),
+  bullet('bootstrapApplication: Inicializa la app con el componente raíz y configuración global.'),
+  bullet('appConfig: Contiene los providers globales (router, http client, animations).'),
+  bullet('catchError: Maneja errores de arranque mostrándolos en consola.'),
+  pb(),
+
+  // ===== 3. APP.CONFIG.TS =====
+  h1('3. Configuración Global - app.config.ts'),
+  body('Archivo: src/app/app.config.ts'),
+  body('Configura los providers que estarán disponibles en toda la aplicación.'),
+  ...imgs('app-config'),
+  bold('Providers:'),
+  bullet(
+    'provideZoneChangeDetection({ eventCoalescing: true }): Optimiza la detección de cambios.',
+  ),
+  bullet('provideRouter(routes): Configura el enrutador.'),
+  bullet('provideHttpClient(): Habilita el cliente HTTP.'),
+  bullet('provideAnimations(): Activa el sistema de animaciones de Angular.'),
+  pb(),
+
+  // ===== 4. APP.ROUTES.TS =====
+  h1('4. Sistema de Rutas - app.routes.ts'),
+  body('Archivo: src/app/app.routes.ts'),
+  body('Define 11 rutas: 1 eager y 10 lazy-loaded para optimizar el bundle inicial.'),
+  ...imgs('app-routes'),
+  bold('Rutas:'),
+  bullet('/ → HomeComponent (eager)'),
+  bullet('/blog → BlogComponent (lazy)'),
+  bullet('/proyectos → ProyectosComponent (lazy)'),
+  bullet('/precios → PreciosComponent (lazy)'),
+  bullet('/inscripcion → InscripcionComponent (lazy)'),
+  bullet('/caracteristicas → CaracteristicasComponent (lazy)'),
+  bullet('/instalacion → InstalacionComponent (lazy)'),
+  bullet('/recursos → RecursosComponent (lazy)'),
+  bullet('/tutoriales → TutorialesComponent (lazy)'),
+  bullet('/novedades → NovedadesComponent (lazy)'),
+  bullet('/admin → AdminComponent (lazy)'),
+  bullet('** → Redirecciona a /'),
+  pb(),
+
+  // ===== 5. APP.TS =====
+  h1('5. Componente Raíz - app.ts'),
+  body('Archivo: src/app/app.ts'),
+  body('Define la estructura principal: Navbar + Router Outlet + Footer + Notification.'),
+  h3('Imports'),
+  ...imgs('app-01-imports'),
+  h3('Decorador @Component'),
+  ...imgs('app-02-decorator'),
+  h3('Template y Clase'),
+  ...imgs('app-03-template-class'),
+  bold('Estructura del template:'),
+  bullet('app-navbar: Barra de navegación fija superior.'),
+  bullet('router-outlet: Renderiza las páginas según la ruta activa.'),
+  bullet('app-footer: Pie de página con branding, enlaces y newsletter.'),
+  bullet('app-notification: Notificaciones toast superpuestas.'),
+  pb(),
+
+  // ===== 6. STYLES.SCSS =====
+  h1('6. Estilos Globales - styles.scss'),
+  body('Archivo: src/styles.scss'),
+  body('Sistema de diseño con tema oscuro, paleta personalizada, glassmorphism y animaciones.'),
+  bold('Variables CSS principales:'),
+  bullet('--bg-dark / --bg-darker: Fondo oscuro en dos tonos.'),
+  bullet('--primary (púrpura #7C3AED) / --secondary (cyan) / --accent (rosa).'),
+  bullet('--glass / --glass-border: Efecto glassmorphism.'),
+  bullet('--font-display: Syne para títulos / --font-body: Plus Jakarta Sans.'),
+  bold('Clases utilitarias:'),
+  bullet('.glass-card: Card con backdrop-filter blur y borde semitransparente.'),
+  bullet('.text-gradient: Gradiente lineal en texto (púrpura → cyan → rosa).'),
+  bullet('.reveal / .visible: Animaciones scroll con IntersectionObserver.'),
+  pb(),
+
+  // ===== 7. SERVICIOS =====
+  h1('7. Servicios'),
+  h2('7.1 SupabaseService'),
+  body('Archivo: src/app/services/supabase.ts'),
+  body('Wrapper del cliente Supabase que gestiona la conexión con PostgreSQL.'),
+  h3('Imports y Decorador'),
+  ...imgs('supabase-01-imports'),
+  h3('Constructor con validación de URL'),
+  body(
+    'Valida que la URL sea HTTPS antes de inicializar el cliente, evitando errores en desarrollo.',
+  ),
+  ...imgs('supabase-02-constructor'),
+  h3('Getter - cliente Supabase'),
+  ...imgs('supabase-03-getter'),
+  h3('getCourseData() - Consulta con joins'),
+  body('Obtiene datos del curso incluyendo instructor y módulos mediante una relación de tablas.'),
+  ...imgs('supabase-04-getCourseData'),
+  h3('sendContact() - Inserción en BD'),
+  body('Inserta registros en la tabla contacts con validación de cliente inicializado.'),
+  ...imgs('supabase-05-sendContact'),
+  pb(),
+
+  h2('7.2 CourseService'),
+  body('Archivo: src/app/services/course.ts'),
+  body(
+    'Capa de negocio que abstrae la lógica y proporciona datos de respaldo (fallback) cuando Supabase no está disponible.',
+  ),
+  h3('Interfaces - Parte 1'),
+  ...imgs('course-01-interfaces-part1'),
+  h3('Interfaces - Parte 2'),
+  ...imgs('course-02-interfaces-part2'),
+  h3('Fallback Data'),
+  ...imgs('course-03-fallback-data'),
+  h3('Fallback Módulos'),
+  ...imgs('course-04-fallback-modules'),
+  h3('getCourseData()'),
+  ...imgs('course-05-getCourseData'),
+  h3('sendContact()'),
+  ...imgs('course-06-sendContact'),
+  h3('Lista de Tutoriales'),
+  body('Arreglo de tutoriales con emojis como iconos representativos.'),
+  ...imgs('course-07-tutorials-list'),
+  h3('addTutorial() - Subject RxJS'),
+  body(
+    'Método que agrega un tutorial y emite el evento a través de un Subject para notificar en tiempo real.',
+  ),
+  ...imgs('course-08-addTutorial'),
+  pb(),
+
+  // ===== 8. SCROLLREVEAL =====
+  h1('8. Directiva ScrollReveal'),
+  body('Archivo: src/app/directives/scroll-reveal.ts'),
+  body(
+    'Directiva standalone que aplica animaciones de entrada al hacer scroll usando IntersectionObserver.',
+  ),
+  ...imgs('scroll-reveal'),
+  bold('Funcionamiento:'),
+  bullet('Usa IntersectionObserver con threshold 0.1 y rootMargin "-50px".'),
+  bullet('Agrega clase "reveal" inicialmente (opacity: 0, translateY(30px)).'),
+  bullet('Cuando es visible, agrega "visible" (opacity: 1, translateY(0)).'),
+  bullet('Se desconecta automáticamente tras la primera activación (unobserve).'),
+  pb(),
+
+  // ===== 9. COMPONENTES =====
+  h1('9. Componentes Compartidos'),
+  h2('9.1 NavbarComponent'),
+  body('Archivo: src/app/components/navbar/navbar.ts'),
+  body('Barra de navegación responsive con GSAP, detección de scroll y menú mobile.'),
+  h3('Imports'),
+  ...imgs('navbar-01-imports'),
+  h3('Decorador @Component'),
+  ...imgs('navbar-02-decorator'),
+  h3('Clase - propiedades y constructor'),
+  ...imgs('navbar-03-class'),
+  h3('toggleMenu()'),
+  body('Maneja el menú mobile con GSAP fade toggle.'),
+  ...imgs('navbar-04-toggleMenu'),
+  h3('closeMenu() y scroll detection'),
+  body('@HostListener para cerrar menú al hacer click fuera y detectar scroll.'),
+  ...imgs('navbar-05-closeMenu-scroll'),
+  h3('GSAP Animación ngAfterViewInit'),
+  body('Animación stagger de los links de navegación con GSAP.'),
+  ...imgs('navbar-06-gsap-anim'),
+  pb(),
+
+  h2('9.2 HeroComponent'),
+  body('Archivo: src/app/components/hero/hero.ts'),
+  body('Hero section de la landing page con animaciones GSAP y métricas dinámicas.'),
+  h3('Imports'),
+  ...imgs('hero-01-imports'),
+  h3('Clase'),
+  ...imgs('hero-02-class'),
+  h3('GSAP ngAfterViewInit'),
+  body('Carga datos del CourseService y anima con GSAP stagger y slide desde la derecha.'),
+  ...imgs('hero-03-gsap'),
+  pb(),
+
+  h2('9.3 CourseDetailsComponent'),
+  body('Archivo: src/app/components/course-details/course-details.ts'),
+  body('Grid de 4 columnas con los módulos del plan de estudios.'),
+  h3('Imports y Decorador'),
+  ...imgs('coursedet-01-imports'),
+  h3('Clase con getIcon()'),
+  body('Obtiene datos del CourseService y asigna iconos cíclicos a cada módulo.'),
+  ...imgs('coursedet-02-class'),
+  pb(),
+
+  h2('9.4 InstructorComponent'),
+  body('Archivo: src/app/components/instructor/instructor.ts'),
+  body('Sección del instructor con foto placeholder, biografía y lista de credenciales.'),
+  h3('Imports y Decorador'),
+  ...imgs('instructor-01-imports'),
+  h3('Clase'),
+  ...imgs('instructor-02-class'),
+  pb(),
+
+  h2('9.5 ContactComponent'),
+  body('Archivo: src/app/components/contact/contact.ts'),
+  body('Formulario de contacto con two-way binding, validación y estados de carga.'),
+  h3('Imports'),
+  ...imgs('contact-01-imports'),
+  h3('Clase'),
+  ...imgs('contact-02-class'),
+  h3('onSubmit()'),
+  body('Maneja el envío del formulario con estados isSubmitting y mensaje de éxito por 5s.'),
+  ...imgs('contact-03-onSubmit'),
+  pb(),
+
+  h2('9.6 FooterComponent'),
+  body('Archivo: src/app/components/footer/footer.ts'),
+  body('Pie de página con 4 columnas: branding, explorar, soporte y newsletter.'),
+  ...imgs('footer'),
+  pb(),
+
+  h2('9.7 NotificationComponent'),
+  body('Archivo: src/app/components/notification/notification.ts'),
+  body('Sistema de notificaciones toast en tiempo real usando RxJS Subjects.'),
+  h3('Imports y Decorador'),
+  ...imgs('notif-01-imports'),
+  h3('Clase con subscription y auto-dismiss'),
+  body('Se suscribe a tutorialAdded$, agrega notificaciones y las remueve tras 6 segundos.'),
+  ...imgs('notif-02-class'),
+  pb(),
+
+  // ===== 10. PÁGINAS =====
+  h1('10. Páginas (Rutas)'),
+
+  h2('10.1 HomeComponent (/)'),
+  body('Archivo: src/app/pages/home/home.ts'),
+  body(
+    'Página principal que compone 4 secciones: Hero → Plan de Estudios → Instructor → Contacto.',
+  ),
+  ...imgs('home'),
+  pb(),
+
+  h2('10.2 BlogComponent (/blog)'),
+  body('Archivo: src/app/pages/blog/blog.ts'),
+  body(
+    'Página con 3 feature cards (rapidez, seguridad, personalización) y secciones de Misión/Visión.',
+  ),
+  bullet('Usa ScrollRevealDirective para animaciones de entrada.'),
+  bullet('Iconos: bootstrapLightningChargeFill, bootstrapShieldLockFill, bootstrapPuzzleFill.'),
+  pb(),
+
+  h2('10.3 ProyectosComponent (/proyectos)'),
+  body('Archivo: src/app/pages/proyectos/proyectos.ts'),
+  body('Galería de 6 proyectos con imágenes Unsplash, overlay hover y categorías.'),
+  bullet('Categorías: Exterior, Character Design, Environment, Hard Surface, Comercial, VFX.'),
+  pb(),
+
+  h2('10.4 PreciosComponent (/precios)'),
+  body('Archivo: src/app/pages/precios/precios.ts'),
+  body(
+    '3 planes de precios con template y estilos inline. Plan Intermedio destacado con glow púrpura.',
+  ),
+  h3('Imports'),
+  ...imgs('precios-01-imports'),
+  h3('Decorador @Component'),
+  ...imgs('precios-02-decorator'),
+  h3('Template - Header y Cards'),
+  ...imgs('precios-03-template-header'),
+  h3('Template - Features y Botones'),
+  ...imgs('precios-04-template-features'),
+  h3('Estilos - Card y Pricing'),
+  ...imgs('precios-05-styles-card'),
+  h3('Estilos - Badge y Botón Outline'),
+  ...imgs('precios-06-styles-misc'),
+  h3('Clase - Datos de Planes'),
+  body('3 planes: Básico ($1,000), Intermedio ($2,000 - destacado), Avanzado ($3,000).'),
+  ...imgs('precios-07-class'),
+  pb(),
+
+  h2('10.5 InscripcionComponent (/inscripcion)'),
+  body('Archivo: src/app/pages/inscripcion/inscripcion.ts'),
+  body('Página de inscripción con formulario y lista de ventajas. Template y estilos 100% inline.'),
+  h3('Imports'),
+  ...imgs('inscrip-01-imports'),
+  h3('Decorador @Component'),
+  ...imgs('inscrip-02-decorator'),
+  h3('Template - Hero y Ventajas'),
+  ...imgs('inscrip-03-template-hero'),
+  h3('Template - Formulario (parte 1)'),
+  ...imgs('inscrip-04-template-form-1'),
+  h3('Template - Formulario (parte 2)'),
+  ...imgs('inscrip-05-template-form-2'),
+  h3('Estilos (parte 1)'),
+  ...imgs('inscrip-06-styles-1'),
+  h3('Estilos (parte 2)'),
+  ...imgs('inscrip-07-styles-2'),
+  h3('Clase TypeScript'),
+  body('Ventajas, datos del formulario y método onSubmit que envía a CourseService.'),
+  ...imgs('inscrip-08-class'),
+  pb(),
+
+  h2('10.6 CaracteristicasComponent (/caracteristicas)'),
+  body('Archivo: src/app/pages/caracteristicas/caracteristicas.ts'),
+  body(
+    '6 tarjetas de características de Blender con imágenes Unsplash, iconos superpuestos y descripciones.',
+  ),
+  pb(),
+
+  h2('10.7 InstalacionComponent (/instalacion)'),
+  body('Archivo: src/app/pages/instalacion/instalacion.ts'),
+  body(
+    'Guía de instalación con tabs para Windows, macOS y Linux. Cada OS con 3 pasos numerados + requisitos.',
+  ),
+  pb(),
+
+  h2('10.8 RecursosComponent (/recursos)'),
+  body('Archivo: src/app/pages/recursos/recursos.ts'),
+  body('4 tarjetas de recursos (Documentación, Cursos, Comunidad, Addons) + 3 assets destacados.'),
+  pb(),
+
+  h2('10.9 TutorialesComponent (/tutoriales)'),
+  body('Archivo: src/app/pages/tutoriales/tutoriales.ts'),
+  body('Lista de tutoriales con suscripción en tiempo real a tutorialAdded$ de CourseService.'),
+  ...imgs('tutoriales-01-imports'),
+  pb(),
+
+  h2('10.10 NovedadesComponent (/novedades)'),
+  body('Archivo: src/app/pages/novedades/novedades.ts'),
+  body(
+    'Página de novedades de Blender 5.0 "Hi Five". Hero section con badge, CTA de descarga, 4 tarjetas de actualizaciones y sección de rendimiento.',
+  ),
+  pb(),
+
+  h2('10.11 AdminComponent (/admin)'),
+  body('Archivo: src/app/pages/admin/admin.ts'),
+  body(
+    'Panel de administración para gestionar tutoriales: formulario de creación + grid de tutoriales.',
+  ),
+  h3('Imports y Decorador'),
+  ...imgs('admin-01-imports'),
+  h3('Clase'),
+  ...imgs('admin-02-class'),
+  h3('onSubmit()'),
+  body('Carga la lista y al crear un tutorial emite vía Subject para actualizar en tiempo real.'),
+  ...imgs('admin-03-onSubmit'),
+  pb(),
+
+  // ===== RESUMEN =====
+  h1('Resumen Técnico'),
+  bold('Stack Tecnológico:'),
+  bullet('Framework: Angular 21 (Standalone Components)'),
+  bullet('Lenguaje: TypeScript 5.9'),
+  bullet('Estilos: SCSS + Bootstrap 5.3 + Glassmorphism'),
+  bullet('Animaciones: GSAP 3.14 + IntersectionObserver'),
+  bullet('Backend: Supabase (PostgreSQL)'),
+  bullet('Estado: RxJS Subjects + Services'),
+  bullet('Testing: Vitest'),
+  bold('Arquitectura:'),
+  bullet('11 rutas (1 eager + 10 lazy-loaded)'),
+  bullet('7 componentes compartidos + 1 directiva + 2 servicios'),
+  bullet('11 páginas standalone con lazy loading'),
+  bold('Patrones implementados:'),
+  bullet('Standalone components (sin NgModules)'),
+  bullet('Lazy loading con loadComponent'),
+  bullet('Fallback data graceful degradation'),
+  bullet('Real-time notifications con RxJS Subjects'),
+  bullet('SEO optimization (Open Graph, JSON-LD, sitemap)'),
+  pb(),
+
+  // ===== NOTAS FINALES =====
+  h1('Notas Finales'),
+  body('Documentación generada el 11 de Junio de 2026.'),
+  body('Proyecto: App-Blender / DIGITALBLERD - Máster en Blender 3D y Animación Profesional.'),
+  body('Las capturas de código fueron generadas con carbon-now-cli (motor carbon.now.sh).'),
 ];
 
 async function main() {
+  function countImageRuns(items) {
+    let count = 0;
+    for (const item of items) {
+      if (item instanceof ImageRun) count++;
+      else if (Array.isArray(item.root)) count += countImageRuns(item.root);
+    }
+    return count;
+  }
+  const totalImages = countImageRuns(children);
   const doc = new Document({
     title: 'Documentación DIGITALBLERD - App-Blender',
     description: 'Documentación técnica del proyecto App-Blender',
     creator: 'DIGITALBLERD',
-    sections,
+    sections: [
+      {
+        properties: { page: { margin: { top: 1200, bottom: 1200, left: 1200, right: 1200 } } },
+        children,
+      },
+    ],
   });
-
   const buffer = await Packer.toBuffer(doc);
-  fs.writeFileSync(OUTPUT, buffer);
-  console.log(`✅ Documento generado: ${OUTPUT}`);
+  fs.writeFileSync(path.join(__dirname, 'DOCUMENTACION.docx'), buffer);
+  console.log(`✅ Documento generado exitosamente`);
   console.log(`   Tamaño: ${(buffer.length / 1024 / 1024).toFixed(2)} MB`);
+  console.log(`   ${totalImages} capturas de código incorporadas`);
 }
 
 main().catch(console.error);

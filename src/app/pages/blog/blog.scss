@@ -1,0 +1,27 @@
+.py-100 { padding: 100px 0; }
+.mt-100 {
+  margin-top: 100px;
+  @media (max-width: 991px) { margin-top: 50px; }
+}
+
+.feature-box {
+  text-align: center;
+  @media (max-width: 768px) { padding: 2rem !important; }
+  .icon-circle {
+    width: 80px;
+    height: 80px;
+    background: hsla(260, 100%, 65%, 0.1);
+    border: 1px solid var(--primary-glow);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: var(--primary);
+    font-size: 2.2rem;
+  }
+}
+
+.border-cyan { border-color: hsla(190, 100%, 50%, 0.3) !important; }
+
+h3 { font-weight: 700; }
