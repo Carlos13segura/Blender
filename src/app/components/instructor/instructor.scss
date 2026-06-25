@@ -12,6 +12,15 @@
 
 .instructor-wrapper {
   border: 1px solid var(--glass-border);
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: var(--transition-smooth);
+
+  &:hover {
+    border-color: hsla(25, 100%, 55%, 0.3);
+    box-shadow: 0 15px 40px -15px var(--primary-glow);
+  }
 
   @media (max-width: 768px) {
     padding: 2rem !important;
@@ -31,6 +40,7 @@
     border-radius: 30px;
     z-index: 0;
     opacity: 0.3;
+    background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
   }
 
   .instructor-img {
@@ -40,7 +50,13 @@
     width: 280px;
     height: 280px;
     object-fit: cover;
-    border: 4px solid var(--glass-border);
+    border: 3px solid var(--glass-border);
+    box-shadow: 0 15px 40px -10px hsla(25, 100%, 55%, 0.15);
+    transition: var(--transition-smooth);
+
+    &:hover {
+      border-color: var(--primary-glow);
+    }
     
     @media (max-width: 576px) {
       width: 200px;
@@ -56,10 +72,17 @@
 }
 
 .credential-item {
-  background: hsla(230, 25%, 15%, 0.5);
+  background: hsla(0, 0%, 100%, 0.5);
   padding: 12px 20px;
   border-radius: 12px;
   border: 1px solid var(--glass-border);
   font-weight: 600;
   font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    border-color: var(--primary-glow);
+    background: hsla(25, 100%, 55%, 0.05);
+  }
 }

@@ -10,7 +10,7 @@
   .icon-circle {
     width: 80px;
     height: 80px;
-    background: hsla(260, 100%, 65%, 0.1);
+    background: hsla(25, 100%, 55%, 0.1);
     border: 1px solid var(--primary-glow);
     border-radius: 50%;
     display: flex;
@@ -19,9 +19,16 @@
     margin: 0 auto;
     color: var(--primary);
     font-size: 2.2rem;
+    transition: var(--transition-smooth);
+
+    &:hover {
+      background: hsla(25, 100%, 55%, 0.18);
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px -10px var(--primary-glow);
+    }
   }
 }
 
-.border-cyan { border-color: hsla(190, 100%, 50%, 0.3) !important; }
+.border-cyan { border-color: hsla(225, 100%, 55%, 0.3) !important; }
 
 h3 { font-weight: 700; }

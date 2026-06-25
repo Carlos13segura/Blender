@@ -1,6 +1,18 @@
 .footer { 
   background: var(--bg-darker); 
-  border-top: 1px solid var(--glass-border); 
+  border-top: 1px solid var(--glass-border);
+  position: relative;
+
+  /* Subtle orange glow at top */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+  }
 }
 
 .py-80 { 
@@ -18,13 +30,17 @@
   color: var(--text-main);
 
   span { 
-    color: var(--primary); 
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
 .brand-icon { 
   font-size: 1.5rem; 
-  color: var(--primary); 
+  color: var(--primary);
+  filter: drop-shadow(0 0 8px var(--primary-glow));
 }
 
 .footer-links {
@@ -47,24 +63,28 @@
   width: 40px;
   height: 40px;
   background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-main);
   text-decoration: none;
   transition: var(--transition-smooth);
   
   &:hover {
     background: var(--primary);
+    border-color: var(--primary);
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px -5px var(--primary-glow);
+    color: white;
   }
 }
 
 .premium-input {
   background: var(--glass);
   border: 1px solid var(--glass-border);
-  color: white;
+  color: var(--text-main);
   border-radius: 10px;
   padding: 10px 15px;
   

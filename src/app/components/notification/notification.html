@@ -1,12 +1,12 @@
 <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1055;">
   <div *ngFor="let note of notifications" class="toast show glass-toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header bg-transparent border-bottom border-secondary text-white">
+    <div class="toast-header bg-transparent border-bottom border-secondary text-dark">
       <ng-icon name="bootstrapBellFill" class="text-primary me-2"></ng-icon>
       <strong class="me-auto text-primary">¡Nuevo Tutorial!</strong>
       <small class="text-muted">Ahora mismo</small>
       <button type="button" class="btn-close btn-close-white" (click)="removeNotification(note)" aria-label="Close"></button>
     </div>
-    <div class="toast-body text-white">
+    <div class="toast-body text-dark">
       Se ha publicado un nuevo tutorial: <strong>{{note.title}}</strong>.
     </div>
   </div>

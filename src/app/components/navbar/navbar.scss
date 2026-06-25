@@ -1,5 +1,5 @@
 .navbar {
-  z-index: 1150; /* ensure navbar stays above page content but below overlay */
+  z-index: 1150;
   padding: 1.5rem 0;
   transition: var(--transition-smooth);
   background: transparent;
@@ -7,9 +7,11 @@
 
   &.scrolled {
     padding: 0.8rem 0;
-    background: hsla(230, 25%, 7%, 0.85);
-    backdrop-filter: blur(20px);
+    background: hsla(0, 0%, 100%, 0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px hsla(25, 100%, 55%, 0.06);
   }
 
   // Mobile and tablet view for navbar
@@ -34,7 +36,10 @@
   color: var(--text-main);
 
   span {
-    color: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   // Small mobile view
@@ -46,7 +51,8 @@
 .brand-icon {
   font-size: 1.8rem;
   color: var(--primary);
-  filter: drop-shadow(0 0 10px var(--primary-glow));
+  filter: drop-shadow(0 0 12px var(--primary-glow));
+  animation: pulseGlow 3s ease-in-out infinite;
 
   // Small mobile view
   @media (max-width: 576px) {
@@ -66,12 +72,16 @@
   align-items: center;
   gap: 0.4rem;
 
-  &.active,
-  &.active:hover {
-    color: #fff;
+  &:hover {
+    color: var(--primary);
   }
 
-  /* underline animation */
+  &.active,
+  &.active:hover {
+    color: var(--primary);
+  }
+
+  /* underline animation – orange */
   &::after {
     content: '';
     position: absolute;
@@ -79,8 +89,9 @@
     left: 0;
     height: 2px;
     width: 0;
-    background: var(--primary);
+    background: linear-gradient(90deg, var(--primary), var(--accent));
     transition: width 0.3s ease;
+    border-radius: 2px;
   }
 
   &:hover::after {
@@ -101,18 +112,30 @@
 
 .btn-premium {
   background: var(--bg-gradient-main);
-  color: white;
+  color: black;
   border: none;
   padding: 0.6rem 1.5rem;
   border-radius: 12px;
   font-weight: 700;
   box-shadow: 0 10px 20px -5px var(--primary-glow);
   transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+
+  /* Shimmer overlay on hover */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(0,0%,100%,0.2), transparent);
+    transition: left 0.5s ease;
+  }
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 15px 30px -5px var(--primary-glow);
     color: white;
+    &::before { left: 100%; }
   }
 
   @media (max-width: 991px) {
@@ -123,7 +146,7 @@
 
 .navbar-toggler {
   border: none;
-  color: white;
+  color: var(--text-main);
   font-size: 1.5rem;
   position: relative;
   z-index: 1050;
@@ -141,8 +164,9 @@
   left: 0;
   width: 100%;
   height: calc(100vh - 5rem);
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
+  background: hsla(0, 0%, 100%, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,7 +277,7 @@
 }
 
 .mobile-menu .nav-link {
-  color: white;
+  color: var(--text-main);
   font-size: 1.25rem;
   font-weight: 600;
   padding: 0.6rem 0;
@@ -266,13 +290,15 @@
 
 .navbar-collapse {
   @media (max-width: 991px) {
-    background: hsla(230, 25%, 7%, 0.98);
-    backdrop-filter: blur(20px);
+    background: hsla(0, 0%, 100%, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     padding: 2rem;
     border-radius: 24px;
     margin-top: 1rem;
     border: 1px solid var(--glass-border);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    animation: glassReveal 0.4s ease both;
   }
 }
 

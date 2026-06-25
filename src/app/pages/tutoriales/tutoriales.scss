@@ -1,7 +1,9 @@
 .tutoriales-page {
   min-height: 100vh;
   padding-top: 140px;
-  background: radial-gradient(circle at 50% 0%, hsla(230, 25%, 15%, 1) 0%, hsla(230, 25%, 5%, 1) 100%);
+  background: 
+    radial-gradient(ellipse at 30% 10%, hsla(25, 100%, 55%, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 0%, hsla(30, 20%, 97%, 1) 0%, hsla(30, 15%, 93%, 1) 100%);
   
   @media (max-width: 991px) {
     padding-top: 100px;
@@ -14,6 +16,9 @@
   flex-direction: column;
   transition: var(--transition-smooth);
   border: 1px solid var(--glass-border);
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
 
   &:hover {
     transform: translateY(-5px);
@@ -35,7 +40,7 @@
 }
 
 .duration-badge {
-  background: hsla(190, 100%, 50%, 0.1);
+  background: hsla(225, 100%, 55%, 0.1);
   color: var(--secondary);
   font-size: 0.9rem;
   font-weight: 600;
@@ -46,18 +51,20 @@
 }
 
 .btn-outline-premium {
-  background: rgba(255,255,255,0.05);
-  color: white !important;
+  background: hsla(0, 0%, 100%, 0.6);
+  color: var(--text-main) !important;
   border: 1px solid var(--glass-border);
   padding: 8px 20px;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
   transition: var(--transition-smooth);
+  backdrop-filter: blur(8px);
 
   &:hover {
     background: var(--primary);
     border-color: var(--primary);
     color: white !important;
+    box-shadow: 0 8px 20px -5px var(--primary-glow);
   }
 }

@@ -18,8 +18,11 @@
     font-family: var(--font-display);
     font-size: 3rem;
     font-weight: 800;
-    opacity: 0.05;
-    color: var(--primary);
+    opacity: 0.07;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   @media (max-width: 768px) {
@@ -30,7 +33,7 @@
 .module-icon-container {
   width: 60px;
   height: 60px;
-  background: hsla(260, 100%, 65%, 0.1);
+  background: hsla(25, 100%, 55%, 0.1);
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -38,13 +41,19 @@
   color: var(--primary);
   font-size: 1.8rem;
   border: 1px solid var(--primary-glow);
+  transition: var(--transition-smooth);
+
+  &:hover {
+    background: hsla(25, 100%, 55%, 0.18);
+    transform: scale(1.05);
+  }
 }
 
 .duration-tag {
   font-weight: 700;
   font-size: 0.85rem;
   color: var(--secondary);
-  background: hsla(190, 100%, 50%, 0.1);
+  background: hsla(225, 100%, 55%, 0.1);
   padding: 6px 12px;
   border-radius: 8px;
   display: inline-flex;
