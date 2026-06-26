@@ -1,25 +1,33 @@
 <section id="instructor" class="py-100 bg-darker">
   <div class="container">
-    <div class="glass-card p-5 instructor-wrapper" appScrollReveal>
-      <div class="row align-items-center g-5">
-        <div class="col-lg-4 text-center">
-          <div class="image-stack">
-            <div class="image-bg bg-gradient-main"></div>
-            <img src="" class="instructor-img" alt="Instructor">
-          </div>
-        </div>
-        <div class="col-lg-8">
-          <h4 class="text-primary fw-bold mb-2">TU INSTRUCTOR</h4>
-          <h2 class="display-4 mb-3">{{data?.instructor?.name}}</h2>
-          <h5 class="text-muted mb-4">{{data?.instructor?.title}}</h5>
-          <p class="instructor-bio mb-4">{{data?.instructor?.bio}}</p>
+    <div class="text-center mb-5" appScrollReveal>
+      <h4 class="text-primary fw-bold mb-2">TUS INSTRUCTORES</h4>
+      <h2 class="display-5">Aprende de los Expertos</h2>
+    </div>
 
-          <div class="row g-3">
-            <div class="col-md-6" *ngFor="let cred of data?.instructor?.credentials; let i = index">
-              <div class="d-flex align-items-center gap-3 credential-item"
-                   appScrollReveal [style.transitionDelay]="(i * 100) + 200 + 'ms'">
-                <ng-icon name="bootstrapCheckCircleFill" class="text-primary"></ng-icon>
-                <span>{{cred}}</span>
+    <div class="row g-4">
+      <div class="col-lg-6" *ngFor="let instructor of data?.instructors">
+        <div class="glass-card p-4 instructor-wrapper h-100" appScrollReveal>
+          <div class="row align-items-center g-4 h-100">
+            <div class="col-md-5 text-center">
+              <div class="image-stack">
+                <div class="image-bg bg-gradient-main"></div>
+                <img src="" class="instructor-img" alt="Instructor">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <h3 class="mb-2">{{instructor.name}}</h3>
+              <h6 class="text-muted mb-3">{{instructor.title}}</h6>
+              <p class="instructor-bio mb-4 small">{{instructor.bio}}</p>
+
+              <div class="row g-2">
+                <div class="col-12" *ngFor="let cred of instructor.credentials; let i = index">
+                  <div class="d-flex align-items-center gap-2 credential-item"
+                       appScrollReveal [style.transitionDelay]="(i * 100) + 200 + 'ms'">
+                    <ng-icon name="bootstrapCheckCircleFill" class="text-primary"></ng-icon>
+                    <span class="small">{{cred}}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

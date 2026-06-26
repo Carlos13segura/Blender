@@ -34,7 +34,7 @@ export interface Tutorial {
 
 export interface CourseData {
   title: string;
-  instructor: Instructor;
+  instructors: Instructor[];
   metrics: Metrics;
   modules: Module[];
 }
@@ -48,12 +48,20 @@ export class CourseService {
   // Datos Mock de respaldo para que la UI se vea siempre
   private fallbackData: CourseData = {
     title: "DIGITALBLERD - Master 3D Design & Animation",
-    instructor: {
-      name: "Carlos Segura",
-      title: "Senior 3D Artist & Lecturer",
-      bio: "Especialista en Blender con más de 10 años de experiencia en la industria de la animación y el diseño 3D.",
-      credentials: ["Autodesk Certified", "Blender Foundation Certified", "Top Rated Instructor"]
-    },
+    instructors: [
+      {
+        name: "Carlos Segura",
+        title: "Senior 3D Artist & Lecturer",
+        bio: "Especialista en Blender con más de 10 años de experiencia en la industria de la animación y el diseño 3D.",
+        credentials: ["Autodesk Certified", "Blender Foundation Certified", "Top Rated Instructor"]
+      },
+      {
+        name: "Andrea Galindo Bautista",
+        title: "3D Artist & Co-Instructor",
+        bio: "Especialista en Blender con amplia experiencia en la industria de la animación y el diseño 3D.",
+        credentials: ["Autodesk Certified", "Blender Foundation Certified", "Top Rated Instructor"]
+      }
+    ],
     metrics: {
       students: 500,
       rating: 4.9,
@@ -72,7 +80,7 @@ export class CourseService {
     return from(this.supabase.getCourseData()).pipe(
       map((data: any) => ({
         title: data.title,
-        instructor: data.instructor,
+        instructors: data.instructors || [data.instructor],
         metrics: {
           students: data.students,
           rating: data.rating,

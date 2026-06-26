@@ -7,15 +7,15 @@
   font-weight: 600;
   transition: var(--transition-smooth);
   border-bottom: 2px solid transparent;
-  
+
   &.active {
     color: var(--primary);
-    background: rgba(255,255,255,0.03);
+    background: rgb(255, 255, 255);
     border-bottom-color: var(--primary);
   }
-  
+
   &:hover:not(.active) {
-    background: rgba(255,255,255,0.01);
+    background: rgb(255, 255, 255);
   }
 }
 

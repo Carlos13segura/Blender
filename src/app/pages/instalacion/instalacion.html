@@ -2,8 +2,9 @@
   <div class="container mt-5">
     <div class="text-center mb-5" appScrollReveal>
       <h1 class="display-3 mb-3">Guía de <span class="text-gradient">Instalación</span></h1>
-      <p class="lead text-muted mx-auto" style="max-width: 700px;">
-        Sigue estos sencillos pasos para tener Blender listo en tu equipo, sin importar qué sistema operativo uses.
+      <p class="lead text-muted mx-auto" style="max-width: 700px">
+        Sigue estos sencillos pasos para tener Blender listo en tu equipo, sin importar qué sistema
+        operativo uses.
       </p>
     </div>
 
@@ -12,12 +13,14 @@
       <div class="col-lg-10">
         <div class="glass-card p-0 overflow-hidden">
           <div class="d-flex border-bottom border-secondary">
-            <button *ngFor="let os of osOptions" 
-                    (click)="activeOS = os.id"
-                    [class.active]="activeOS === os.id"
-                    class="os-tab flex-grow-1 p-4 d-flex align-items-center justify-content-center gap-2">
+            <button
+              *ngFor="let os of osOptions"
+              (click)="activeOS = os.id"
+              [class.active]="activeOS === os.id"
+              class="os-tab flex-grow-1 p-4 d-flex align-items-center justify-content-center gap-2"
+            >
               <ng-icon [name]="os.icon"></ng-icon>
-              <span>{{os.label}}</span>
+              <span>{{ os.label }}</span>
             </button>
           </div>
 
@@ -25,21 +28,24 @@
             <div *ngFor="let os of osOptions" [hidden]="activeOS !== os.id">
               <h2 class="h3 mb-4 d-flex align-items-center gap-3">
                 <ng-icon [name]="os.icon" class="text-primary"></ng-icon>
-                Blender en {{os.label}}
+                Blender en {{ os.label }}
               </h2>
-              
+
               <div class="install-steps">
-                <div class="step-item d-flex gap-4 mb-4" *ngFor="let step of os.steps; let i = index">
-                  <div class="step-num text-white">{{i + 1}}</div>
+                <div
+                  class="step-item d-flex gap-4 mb-4"
+                  *ngFor="let step of os.steps; let i = index"
+                >
+                  <div class="step-num text-white">{{ i + 1 }}</div>
                   <div>
-                    <h4 class="h5 mb-2">{{step.title}}</h4>
-                    <p class="text-muted mb-0">{{step.text}}</p>
+                    <h4 class="h5 mb-2">{{ step.title }}</h4>
+                    <p class="text-muted mb-0">{{ step.text }}</p>
                   </div>
                 </div>
               </div>
 
-              <div class="requirements mt-5 p-4 rounded-4 bg-dark border border-secondary">
-                <h4 class="h6 mb-3 d-flex align-items-center gap-2 text-white">
+              <div class="requirements mt-5 p-4 rounded-4 bg-white border border-secondary">
+                <h4 class="h6 mb-3 d-flex align-items-center gap-2 text-dark">
                   <ng-icon name="lucideCheckCircle2" class="text-success"></ng-icon>
                   Requisitos Recomendados
                 </h4>
